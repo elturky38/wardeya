@@ -1,0 +1,2138 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="فكرة تطبيق بيوصّل ورديات مصانع مدينة السادات للعامل مباشرة، من غير مقاول أنفار. الصفحة دي للعرض وأخد الرأي بس.">
+<link rel="canonical" href="https://elturky38.github.io/wardeya/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="وردية">
+<meta property="og:locale" content="ar_EG">
+<meta property="og:title" content="وردية — شغلك ورجوعك، من غير سمسار">
+<meta property="og:description" content="فكرة تطبيق بيوصّل ورديات مصانع مدينة السادات للعامل مباشرة، من غير مقاول أنفار. الصفحة دي للعرض وأخد الرأي بس.">
+<meta property="og:url" content="https://elturky38.github.io/wardeya/">
+<meta property="og:image" content="https://elturky38.github.io/wardeya/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="وردية — شغلك ورجوعك، من غير سمسار">
+<meta name="twitter:description" content="فكرة تطبيق بيوصّل ورديات مصانع مدينة السادات للعامل مباشرة، من غير مقاول أنفار. الصفحة دي للعرض وأخد الرأي بس.">
+<meta name="twitter:image" content="https://elturky38.github.io/wardeya/og.jpg">
+<title>وردية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#0E1013;
+  --ground-2:#14171C;
+  --surface:#191D23;
+  --surface-2:#20252C;
+  --line:#2A3038;
+  --line-2:#39414B;
+  --ink:#EDF0F3;
+  --ink-2:#9AA4B0;
+  --ink-3:#69737F;
+  --hi:#FF7A1A;
+  --hi-deep:#D45B08;
+  --hi-wash:rgba(255,122,26,.11);
+  --go:#22C55E;
+  --go-wash:rgba(34,197,94,.12);
+  --hold:#FFC53D;
+  --stop:#F0533A;
+  --paper:#FFFFFF;
+  --paper-2:#F4F6F8;
+  --paper-line:#E4E8ED;
+  --paper-ink:#14181D;
+  --paper-ink-2:#5C6673;
+  --paper-ink-3:#98A1AD;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --body:"IBM Plex Sans Arabic","Cairo",system-ui,sans-serif;
+  --display:"Cairo","IBM Plex Sans Arabic",system-ui,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+
+body{
+  margin:0;
+  direction:rtl;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:88px 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:900;line-height:1.2;text-wrap:balance;margin:0}
+p{margin:0}
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--hi);
+  display:block;
+  margin-bottom:14px;
+}
+.lede{color:var(--ink-2);font-size:17px;line-height:1.8;max-width:62ch}
+.dim{color:var(--ink-3)}
+
+/* ─────────── hero ─────────── */
+.hero{
+  padding:96px 0 72px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-160px -30% -60px -30%;
+  background:radial-gradient(closest-side ellipse at 58% 46%, rgba(255,122,26,.22), rgba(255,122,26,.05) 62%, transparent 100%);
+  pointer-events:none;
+}
+.hero-inner{position:relative}
+.lockup{display:flex;align-items:center;gap:18px;margin-bottom:34px}
+.mark{
+  width:74px;height:74px;border-radius:22px;flex:none;
+  background:linear-gradient(145deg,#FF8B33,#CE5405);
+  display:grid;place-items:center;
+  box-shadow:0 14px 40px rgba(255,122,26,.28);
+}
+.mark svg{width:40px;height:40px;display:block}
+.lockup h1{font-size:clamp(44px,7vw,68px);letter-spacing:-.01em}
+.lockup .tag{color:var(--ink-2);font-size:15px;margin-top:2px;font-weight:500}
+
+.thesis{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(22px,3.1vw,32px);
+  line-height:1.55;
+  max-width:22ch;
+  margin-bottom:8px;
+}
+.thesis b{color:var(--hi);font-weight:900}
+.hero-note{color:var(--ink-2);max-width:52ch;margin-top:18px;font-size:16px}
+
+.facts{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  margin-top:52px;
+}
+.fact{background:var(--ground-2);padding:22px 20px}
+.fact .n{
+  font-family:var(--display);font-weight:900;font-size:34px;line-height:1.1;
+  color:var(--hi);font-variant-numeric:tabular-nums;
+}
+.fact .l{color:var(--ink-2);font-size:13px;margin-top:6px;line-height:1.5}
+.fact .s{color:var(--ink-3);font-size:11.5px;margin-top:3px;font-family:var(--mono)}
+
+/* ─────────── problem ─────────── */
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:44px}
+.pane{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:26px 24px;
+}
+.pane .who{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:12px;display:block;
+}
+.pane h3{font-size:20px;margin-bottom:12px}
+.pane p{color:var(--ink-2);font-size:15px;line-height:1.8}
+.pane.hot{border-color:rgba(255,122,26,.35);background:linear-gradient(180deg,var(--hi-wash),transparent 70%),var(--surface)}
+.pane.hot h3{color:var(--hi)}
+
+.rule{
+  margin-top:44px;
+  border:1px solid var(--line-2);
+  border-radius:18px;
+  padding:28px 30px;
+  background:var(--ground-2);
+  display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap;
+}
+.rule .badge{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--go);border:1px solid rgba(34,197,94,.4);background:var(--go-wash);
+  padding:6px 12px;border-radius:999px;flex:none;
+}
+.rule .body{flex:1;min-width:240px}
+.rule h3{font-size:22px;margin-bottom:10px}
+.rule p{color:var(--ink-2);font-size:15.5px}
+
+/* ─────────── the day / screens ─────────── */
+.day{position:relative;margin-top:56px}
+.moment{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;
+  gap:44px;
+  align-items:center;
+  padding:44px 0;
+  border-bottom:1px solid var(--line);
+}
+.moment:last-child{border-bottom:0}
+.moment .say{max-width:46ch}
+.clock{
+  font-family:var(--mono);
+  font-size:12.5px;
+  letter-spacing:.1em;
+  color:var(--hi);
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:14px;
+}
+.clock::after{content:"";height:1px;flex:1;background:linear-gradient(to left,var(--line),transparent)}
+.moment h3{font-size:26px;margin-bottom:12px}
+.moment p{color:var(--ink-2);font-size:15.5px;line-height:1.85}
+.moment .why{
+  margin-top:16px;padding-top:16px;border-top:1px dashed var(--line-2);
+  color:var(--ink-3);font-size:13.5px;line-height:1.7;
+}
+.moment .why b{color:var(--ink-2);font-weight:600}
+
+/* ─────────── phone ─────────── */
+.phone{
+  width:320px;
+  border-radius:38px;
+  background:#05070A;
+  padding:10px;
+  box-shadow:0 30px 70px rgba(0,0,0,.55), 0 0 0 1px var(--line-2);
+  justify-self:center;
+}
+.pscreen{
+  border-radius:29px;
+  overflow:hidden;
+  background:var(--paper-2);
+  color:var(--paper-ink);
+  font-family:var(--display);
+  height:620px;
+  display:flex;flex-direction:column;
+  position:relative;
+}
+.pscreen.dark{background:#14181D;color:#fff}
+.statusbar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 20px 4px;font-family:var(--mono);font-size:10.5px;
+  color:var(--paper-ink-3);flex:none;
+}
+.pscreen.dark .statusbar{color:rgba(255,255,255,.5)}
+.pbody{flex:1;overflow:hidden;display:flex;flex-direction:column}
+.pad{padding:0 16px}
+
+/* app bits */
+.a-head{background:#fff;padding:10px 18px 16px}
+.a-greet{font-size:19px;font-weight:900;line-height:1.3}
+.a-sub{font-size:10.5px;color:var(--paper-ink-3);font-weight:400;margin-top:2px}
+.a-tabs{display:flex;gap:7px;margin-top:14px}
+.a-tab{
+  border-radius:11px;background:var(--paper-2);padding:7px 12px;text-align:center;
+  font-size:11.5px;font-weight:700;line-height:1.25;
+}
+.a-tab .d{font-size:9px;font-weight:400;color:var(--paper-ink-3)}
+.a-tab.on{background:var(--paper-ink);color:#fff}
+.a-tab.on .d{color:rgba(255,255,255,.7)}
+
+.card{
+  background:#fff;border:1.5px solid var(--paper-line);border-radius:17px;
+  padding:14px 14px 12px;margin-bottom:10px;
+}
+.card.match{border-color:#FFE0C7}
+.card.off{opacity:.5}
+.chip{
+  display:inline-block;background:#FFF1E7;color:#D4530A;
+  font-size:9.5px;font-weight:900;padding:3px 9px;border-radius:999px;margin-bottom:8px;
+}
+.crow{display:flex;gap:11px;align-items:flex-start}
+.pay{flex:none;text-align:left}
+.pay .v{font-size:30px;font-weight:900;color:var(--hi);line-height:1;letter-spacing:-.01em}
+.pay .u{font-size:9.5px;color:var(--paper-ink-3);font-weight:600;margin-top:2px}
+.card.off .pay .v{color:var(--paper-ink-3)}
+.cinfo{flex:1;min-width:0}
+.cinfo .f{font-size:14px;font-weight:900;line-height:1.35}
+.cinfo .k{font-size:10.5px;color:var(--paper-ink-2);font-weight:400}
+.cinfo .j{font-size:10.5px;color:var(--paper-ink-2);font-weight:500;margin-top:1px}
+.bus{
+  display:flex;align-items:center;gap:8px;background:#E8F0FE;color:#2F6FE4;
+  border-radius:11px;padding:8px 10px;margin-top:11px;
+}
+.bus .t{font-size:13px;font-weight:900;font-variant-numeric:tabular-nums}
+.bus .s{font-size:11.5px;font-weight:600;flex:1;text-align:right}
+.act{display:flex;align-items:center;gap:9px;margin-top:11px}
+.act .left{font-size:10.5px;font-weight:700;color:var(--paper-ink-2);flex:1;text-align:left}
+.act .left.warn{color:#DC2B2B}
+.btn{
+  background:var(--hi);color:#fff;border-radius:10px;padding:9px 24px;
+  font-size:13px;font-weight:900;text-align:center;
+}
+.btn.ghost{background:var(--paper-2);color:var(--paper-ink-3)}
+.btn.wide{display:block;padding:14px}
+.btn.dark{background:var(--paper-ink)}
+
+.a-nav{
+  display:flex;background:#fff;border-top:1px solid var(--paper-line);
+  padding:8px 4px 14px;flex:none;
+}
+.a-nav div{flex:1;text-align:center;font-size:9.5px;color:var(--paper-ink-3)}
+.a-nav div .i{font-size:16px;display:block;opacity:.4;margin-bottom:1px}
+.a-nav div.on{color:var(--hi);font-weight:900}
+.a-nav div.on .i{opacity:1}
+
+/* detail screen */
+.hero-band{
+  background:linear-gradient(160deg,#FF8B33,#CE5405);color:#fff;padding:14px 18px 20px;
+}
+.hero-band .n{font-size:19px;font-weight:900;line-height:1.3}
+.hero-band .z{font-size:10.5px;opacity:.85;font-weight:400;margin-top:2px}
+.paybox{
+  background:rgba(255,255,255,.18);border-radius:14px;padding:11px 14px;margin-top:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.paybox .big{font-size:26px;font-weight:900;line-height:1}
+.paybox .lbl{font-size:10.5px;opacity:.9;flex:1;text-align:left;font-weight:500}
+.frow{display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid var(--paper-line);font-size:11.5px}
+.frow:last-child{border-bottom:0}
+.frow .k{color:var(--paper-ink-3);font-weight:400;flex:none;min-width:62px;text-align:right}
+.frow .v{color:var(--paper-ink);font-weight:700;flex:1;text-align:left}
+
+/* map */
+.map{position:relative;height:96px;border-radius:13px;background:var(--paper-2);overflow:hidden;margin-top:10px}
+.map .road{position:absolute;background:#DBE0E7;border-radius:2px}
+.map .blk{position:absolute;background:#E7EBF0;border-radius:5px}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .pin{position:absolute;width:14px;height:14px;border-radius:999px;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+
+/* ticket */
+.ticket{background:#fff;border-radius:20px;padding:15px;margin:0 4px}
+.qr{width:118px;height:118px;margin:10px auto 0;display:grid;grid-template-columns:repeat(21,1fr);grid-template-rows:repeat(21,1fr)}
+.qr i{background:#0E1013}
+.codebox{background:#FFF1E7;border-radius:12px;padding:9px;margin-top:12px;text-align:center}
+.codebox .l{font-size:9.5px;color:var(--paper-ink-2);font-weight:500}
+.codebox .v{font-size:32px;font-weight:900;color:#D4530A;letter-spacing:.16em;line-height:1.2;font-variant-numeric:tabular-nums}
+.cut{border-top:2px dashed var(--paper-line);margin:14px -18px}
+.trow{display:flex;align-items:center;gap:10px;font-size:11.5px;margin-bottom:7px}
+.trow .k{color:var(--paper-ink-3);flex:none}
+.trow .v{font-weight:900;flex:1;text-align:left}
+
+.okpill{
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  background:var(--go);color:#fff;border-radius:999px;padding:6px 14px;
+  font-size:12px;font-weight:900;width:fit-content;margin:0 auto 11px;
+}
+.listenbtn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  border:1.5px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);
+  border-radius:12px;padding:12px;font-size:13px;font-weight:900;margin:12px 4px 0;
+}
+
+/* countdown */
+.count{background:var(--go);color:#fff;text-align:center;padding:18px}
+.count .a{font-size:11.5px;opacity:.9;font-weight:500}
+.count .b{font-size:44px;font-weight:900;line-height:1.1;margin:2px 0}
+.count .c{font-size:13px;font-weight:700;opacity:.9}
+
+/* wallet */
+.wal{background:#14181D;color:#fff;padding:16px 18px 20px}
+.wal .t{font-size:18px;font-weight:900}
+.wal .l{font-size:10.5px;opacity:.55;margin-top:14px;font-weight:500}
+.wal .v{font-size:38px;font-weight:900;line-height:1.15}
+.wal .kk{display:flex;gap:8px;margin-top:12px}
+.wal .kk div{flex:1;background:rgba(255,255,255,.1);border-radius:11px;padding:9px 11px}
+.wal .kk .a{font-size:9.5px;opacity:.55}
+.wal .kk .b{font-size:15px;font-weight:900}
+.mrow{
+  background:#fff;border-radius:13px;padding:11px 12px;margin-bottom:8px;
+  display:flex;align-items:center;gap:10px;
+}
+.mrow .amt{flex:none;text-align:left}
+.mrow .amt .v{font-size:15px;font-weight:900;line-height:1.2}
+.mrow .amt .s{font-size:9.5px;color:var(--paper-ink-3);font-weight:700}
+.mrow .inf{flex:1;min-width:0}
+.mrow .inf .f{font-size:12.5px;font-weight:700;line-height:1.35}
+.mrow .inf .d{font-size:10px;color:var(--paper-ink-3)}
+.note{
+  background:#E8F0FE;color:#2F6FE4;border-radius:11px;padding:9px 11px;
+  font-size:10.5px;font-weight:500;line-height:1.6;margin-bottom:10px;
+}
+
+/* ─────────── desktop frame ─────────── */
+.browser{
+  border-radius:16px;overflow:hidden;border:1px solid var(--line-2);
+  background:#0A0C0F;box-shadow:0 30px 70px rgba(0,0,0,.5);
+}
+.bbar{
+  display:flex;align-items:center;gap:7px;padding:11px 14px;
+  background:var(--surface-2);border-bottom:1px solid var(--line);
+}
+.bbar .dot{width:10px;height:10px;border-radius:999px;background:var(--line-2)}
+.bbar .url{
+  flex:1;text-align:center;font-family:var(--mono);font-size:11px;color:var(--ink-3);
+  direction:ltr;
+}
+.bview{background:var(--paper-2);color:var(--paper-ink);font-family:var(--display);padding:22px}
+.bview.dark{background:#14181D;color:#fff}
+
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.dk{background:#fff;border:1px solid var(--paper-line);border-radius:14px;padding:14px 16px}
+.dk .l{font-size:11.5px;color:var(--paper-ink-2);font-weight:600}
+.dk .v{font-size:26px;font-weight:900;line-height:1.15;font-variant-numeric:tabular-nums}
+.dk .s{font-size:10px;color:var(--paper-ink-3);margin-top:1px}
+
+.dtbl{background:#fff;border:1px solid var(--paper-line);border-radius:14px;margin-top:14px;overflow:hidden}
+.dtbl .th,.dtbl .tr{display:grid;grid-template-columns:1.6fr 1fr .7fr .55fr .55fr 1.1fr .85fr;gap:10px;align-items:center;padding:11px 16px}
+.dtbl .th{background:var(--paper-2);font-size:10.5px;color:var(--paper-ink-3);font-weight:700}
+.dtbl .tr{border-top:1px solid var(--paper-line);font-size:12px}
+.dtbl .tr .w{font-weight:800}
+.dtbl .tr .g{color:var(--paper-ink-2)}
+.track{height:8px;border-radius:999px;background:var(--paper-2);overflow:hidden}
+.track i{display:block;height:100%;border-radius:999px}
+.spill{
+  font-size:9.5px;font-weight:900;padding:3px 8px;border-radius:999px;text-align:center;
+}
+
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px;margin-top:16px}
+.pcell{
+  display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:11px;
+  background:rgba(255,255,255,.06);border:1.5px solid rgba(34,197,94,.35);
+}
+.pcell.late{border-color:rgba(255,197,61,.7)}
+.pcell.no{border-color:rgba(240,83,58,.75)}
+.pcell .m{width:20px;height:20px;border-radius:999px;background:var(--go);display:grid;place-items:center;font-size:10px;font-weight:900;color:#fff;flex:none}
+.pcell.late .m{background:var(--hold);color:#14181D}
+.pcell.no .m{background:var(--stop)}
+.pcell .n{flex:1;font-size:11.5px;font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pcell .t{font-family:var(--mono);font-size:10.5px;color:var(--go);font-weight:600}
+.pcell.late .t{color:var(--hold)}
+.pcell.no .t{color:var(--stop)}
+
+/* ─────────── money ─────────── */
+.tblwrap{overflow-x:auto;margin-top:32px;border:1px solid var(--line);border-radius:16px}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+th,td{padding:14px 18px;text-align:right;border-bottom:1px solid var(--line)}
+th{background:var(--ground-2);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;font-weight:700;text-align:left;font-family:var(--display)}
+td.hi{color:var(--hi)}
+td.go{color:var(--go)}
+
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:32px}
+.mcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 24px}
+.mcard .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.mcard .v{font-family:var(--display);font-weight:900;font-size:40px;line-height:1.15;margin-top:8px;font-variant-numeric:tabular-nums}
+.mcard .v.hi{color:var(--hi)}
+.mcard .v.go{color:var(--go)}
+.mcard p{color:var(--ink-2);font-size:14.5px;margin-top:10px;line-height:1.75}
+
+.beven{
+  margin-top:24px;background:linear-gradient(180deg,var(--go-wash),transparent 70%),var(--surface);
+  border:1px solid rgba(34,197,94,.32);border-radius:18px;padding:26px 24px;
+}
+.beven .v{font-family:var(--display);font-weight:900;font-size:44px;color:var(--go);line-height:1.1}
+.beven p{color:var(--ink-2);font-size:15px;margin-top:8px}
+
+/* ─────────── roadmap ─────────── */
+.road{margin-top:40px;display:grid;gap:0}
+.stage{
+  display:grid;grid-template-columns:100px 1fr;gap:26px;
+  padding:26px 0;border-top:1px solid var(--line);align-items:start;
+}
+.stage:first-child{border-top:0;padding-top:0}
+.stage .when{
+  font-family:var(--mono);font-size:12px;color:var(--hi);letter-spacing:.06em;
+  padding-top:5px;
+}
+.stage h4{font-size:19px;margin-bottom:8px}
+.stage p{color:var(--ink-2);font-size:15px;line-height:1.8}
+.stage ul{margin:10px 0 0;padding:0 20px 0 0;color:var(--ink-2);font-size:14.5px;line-height:1.9}
+.stage.gate{background:var(--hi-wash);border-radius:16px;padding:22px 24px;border-top:0;margin:8px 0}
+.stage.gate .when{color:var(--hi);padding-top:0}
+.stage.gate h4{color:var(--hi)}
+
+/* ─────────── closing ─────────── */
+.close{padding:88px 0 110px;border-top:1px solid var(--line)}
+.close h2{font-size:clamp(26px,4vw,38px);max-width:20ch;line-height:1.35}
+.close p{color:var(--ink-2);font-size:16.5px;max-width:56ch;margin-top:20px;line-height:1.85}
+.srcs{
+  margin-top:44px;padding-top:22px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-3);line-height:2;
+}
+.srcs a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line-2)}
+.srcs a:hover,.srcs a:focus-visible{color:var(--hi);border-color:var(--hi)}
+a:focus-visible{outline:2px solid var(--hi);outline-offset:3px;border-radius:3px}
+
+@media (max-width:860px){
+  .moment{grid-template-columns:1fr;gap:30px}
+  .phone{justify-self:start}
+  .stage{grid-template-columns:1fr;gap:8px}
+  section{padding:64px 0}
+}
+
+/* ═════════════════════════════════════════════════════
+   الإضافات — القايمة، دياجرام الفلوس، الهوية
+   ═════════════════════════════════════════════════════ */
+
+/* ─────────── قايمة علوية ─────────── */
+.nv{
+  position:fixed;inset:0 0 auto 0;z-index:50;
+  background:rgba(14,16,19,.84);
+  backdrop-filter:saturate(150%) blur(14px);
+  -webkit-backdrop-filter:saturate(150%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nv-in{
+  max-width:1180px;margin:0 auto;padding:0 24px;
+  height:58px;display:flex;align-items:center;gap:26px;
+}
+.nv-brand{
+  display:flex;align-items:center;gap:9px;flex:none;
+  color:var(--ink);text-decoration:none;
+  font-family:var(--display);font-weight:900;font-size:17px;
+}
+.nv-brand svg{width:26px;height:26px;display:block;flex:none}
+.nv-links{display:flex;align-items:center;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none}
+.nv-links::-webkit-scrollbar{display:none}
+.nv-links a{
+  color:var(--ink-3);text-decoration:none;white-space:nowrap;
+  font-size:13.5px;font-weight:600;padding:7px 11px;border-radius:9px;
+  transition:color .18s ease,background .18s ease;
+}
+.nv-links a:hover,.nv-links a:focus-visible{color:var(--ink);background:var(--surface)}
+.nv-links a.on{color:var(--hi);background:var(--hi-wash)}
+.nv-prog{position:absolute;inset:auto 0 -1px 0;height:2px}
+.nv-prog i{display:block;height:100%;width:0;background:var(--hi)}
+body{padding-top:58px}
+section[id],footer[id],header[id]{scroll-margin-top:76px}
+@media (max-width:640px){
+  .nv-in{gap:14px;padding:0 16px}
+  .nv-brand .wd{display:none}
+}
+
+/* ─────────── ظهور بالتمرير ─────────── */
+.rise{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+.rise.seen{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;transition:none}}
+
+/* ─────────── شريط تحذير صناعي ─────────── */
+.hazard{
+  height:9px;border-radius:99px;margin-top:34px;
+  background:repeating-linear-gradient(-45deg,var(--hi) 0 10px,transparent 10px 20px);
+  opacity:.5;
+}
+
+/* ─────────── دياجرام: الفلوس ماشية فين ─────────── */
+.flow{margin-top:44px;display:grid;gap:16px}
+.lane{
+  border:1px solid var(--line);border-radius:20px;padding:24px 24px 22px;
+  background:var(--ground-2);
+}
+.lane.now{border-color:rgba(240,83,58,.3)}
+.lane.new{border-color:rgba(34,197,94,.34);background:linear-gradient(180deg,var(--go-wash),transparent 62%),var(--ground-2)}
+.lane-t{display:flex;align-items:baseline;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.lane-t h4{font-size:18px}
+.lane-t .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.lane.now .lane-t .k{color:var(--stop)}
+.lane.new .lane-t .k{color:var(--go)}
+.lane-t .hint{color:var(--ink-3);font-size:13px;margin-inline-start:auto;background:none;padding:0;border-radius:0}
+
+.chain{display:flex;align-items:stretch;flex-wrap:wrap}
+.node{
+  flex:1;min-width:136px;
+  background:var(--surface);border:1px solid var(--line-2);border-radius:15px;
+  padding:15px 14px;text-align:center;
+}
+.node svg{width:24px;height:24px;display:block;margin:0 auto 8px;stroke:var(--ink-2);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.node .nm{font-size:13.5px;font-weight:800;font-family:var(--display);line-height:1.3}
+.node .sb{font-size:11px;color:var(--ink-3);margin-top:3px}
+.node.mid{border-style:dashed;border-color:rgba(240,83,58,.6);background:rgba(240,83,58,.07)}
+.node.mid .nm{color:var(--stop)}
+.node.mid svg{stroke:var(--stop)}
+.node.us{border-color:rgba(34,197,94,.5);background:var(--go-wash)}
+.node.us .nm{color:var(--go)}
+.node.us svg{stroke:var(--go)}
+
+.link{
+  flex:none;width:104px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:6px;padding:0 6px;
+}
+.link .amt{
+  font-family:var(--mono);font-size:12.5px;font-weight:600;
+  font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2);
+}
+.link .bar{width:100%;height:2px;background:var(--line-2);position:relative}
+.link .bar::before{
+  content:"";position:absolute;top:50%;right:0;transform:translateY(-50%);
+  border:5px solid transparent;border-right-color:var(--line-2);
+}
+.link.cut .amt{color:var(--stop)}
+.link.cut .bar{background:var(--stop)}
+.link.cut .bar::before{border-right-color:var(--stop)}
+.link.ok .amt{color:var(--go)}
+.link.ok .bar{background:var(--go)}
+.link.ok .bar::before{border-right-color:var(--go)}
+.link .tag{font-size:10.5px;color:var(--ink-3);text-align:center;line-height:1.4}
+
+.lane-sum{
+  margin-top:20px;padding-top:16px;border-top:1px dashed var(--line-2);
+  display:flex;gap:30px;flex-wrap:wrap;
+}
+.lane-sum div{font-size:12.5px;color:var(--ink-3)}
+.lane-sum b{
+  display:block;font-family:var(--display);font-weight:900;font-size:22px;
+  line-height:1.25;color:var(--ink);font-variant-numeric:tabular-nums;
+}
+.lane-sum .red b{color:var(--stop)}
+.lane-sum .grn b{color:var(--go)}
+@media (max-width:720px){
+  .chain{flex-direction:column}
+  .link{width:100%;flex-direction:row;gap:10px;padding:10px 0}
+  .link .bar{flex:1}
+  .link .bar::before{right:auto;left:0;border-right-color:transparent}
+  .link.cut .bar::before,.link.ok .bar::before,.link .bar::before{border-right-color:transparent}
+  .link .bar::after{
+    content:"";position:absolute;top:50%;left:0;transform:translateY(-50%);
+    border:5px solid transparent;border-left-color:var(--line-2);
+  }
+  .link.cut .bar::after{border-left-color:var(--stop)}
+  .link.ok .bar::after{border-left-color:var(--go)}
+}
+
+/* ─────────── قسم الهوية ─────────── */
+.bd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:20px;margin-top:40px}
+.bd-box{
+  background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:24px;display:flex;flex-direction:column;gap:15px;
+}
+.bd-box h3{font-size:17px}
+.bd-box .cap{color:var(--ink-3);font-size:13px;line-height:1.75}
+.bd-lab{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+
+/* بناء العلامة */
+.mark-stage{
+  background:var(--ground);border:1px solid var(--line);border-radius:14px;
+  display:grid;place-items:center;padding:24px;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:20px 20px;
+}
+.mark-stage svg{width:120px;height:120px;display:block}
+.mark-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.mark-chip{border-radius:24%;display:grid;place-items:center;flex:none;background:linear-gradient(145deg,#FF8B33,#CE5405)}
+.mark-chip.s1{width:56px;height:56px}
+.mark-chip.s2{width:38px;height:38px}
+.mark-chip.s3{width:26px;height:26px}
+.mark-chip.mono{background:var(--ink)}
+.mark-chip svg{width:58%;height:58%;display:block}
+
+/* ألوان */
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr));gap:10px}
+.sw div{border-radius:13px;padding:13px 12px;border:1px solid var(--line);min-height:96px;display:flex;flex-direction:column;justify-content:flex-end}
+.sw .nm{font-size:12px;font-weight:800;font-family:var(--display)}
+.sw .hx{font-family:var(--mono);font-size:10.5px;opacity:.72;direction:ltr;text-align:right;margin-top:1px}
+
+/* الخط */
+.spec{display:grid;gap:13px}
+.spec .ln{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.spec .ln:last-child{border-bottom:0;padding-bottom:0}
+.spec .ln .m{font-family:var(--mono);font-size:10px;color:var(--ink-3);flex:none;min-width:84px;direction:ltr;text-align:right}
+.spec .ln .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* أيقونات */
+.icons{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:10px}
+.icons figure{
+  margin:0;background:var(--ground-2);border:1px solid var(--line);border-radius:13px;
+  padding:14px 8px;display:flex;flex-direction:column;align-items:center;gap:9px;
+}
+.icons svg{width:26px;height:26px;display:block;stroke:var(--hi);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.icons figcaption{font-size:10.5px;color:var(--ink-3);text-align:center;line-height:1.4}
+
+/* على أرض الواقع */
+.real{display:grid;grid-template-columns:repeat(auto-fit,minmax(256px,1fr));gap:22px;margin-top:22px;align-items:start}
+.real > div{display:flex;flex-direction:column;gap:12px}
+.real .cap{color:var(--ink-3);font-size:13px;line-height:1.7}
+
+/* كارنيه العامل */
+.badge-card{
+  aspect-ratio:1/1.44;border-radius:16px;overflow:hidden;
+  background:#fff;color:var(--paper-ink);font-family:var(--display);
+  display:flex;flex-direction:column;
+  box-shadow:0 22px 48px rgba(0,0,0,.5);
+}
+.badge-card .top{background:linear-gradient(150deg,#FF8B33,#CE5405);color:#fff;padding:14px 15px 13px}
+.badge-card .top .bn{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:900}
+.badge-card .top .bn svg{width:18px;height:18px;flex:none}
+.badge-card .top .bz{font-size:9.5px;opacity:.9;margin-top:3px;font-weight:500}
+.badge-card .mid{flex:1;padding:13px 15px 14px;display:flex;flex-direction:column;gap:9px}
+.badge-card .ph{width:50px;height:50px;border-radius:14px;background:var(--paper-2);display:grid;place-items:center}
+.badge-card .ph svg{width:26px;height:26px;stroke:var(--paper-ink-3);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.badge-card .nmm{font-size:15px;font-weight:900;line-height:1.25}
+.badge-card .rl{font-size:10px;color:var(--paper-ink-2);margin-top:1px}
+.badge-card .kv{display:flex;gap:8px;margin-top:auto}
+.badge-card .kv div{flex:1;background:var(--paper-2);border-radius:9px;padding:6px 8px}
+.badge-card .kv .a{font-size:8.5px;color:var(--paper-ink-3);font-weight:600}
+.badge-card .kv .b{font-size:12.5px;font-weight:900;font-variant-numeric:tabular-nums}
+.badge-card .bot{background:var(--paper-ink);color:#fff;padding:9px 15px;display:flex;align-items:center;gap:9px}
+.badge-card .bot .id{font-family:var(--mono);font-size:11px;letter-spacing:.1em;flex:1;direction:ltr;text-align:right;opacity:.85}
+.badge-card .bot .qq{width:28px;height:28px;background:#fff;border-radius:5px;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr);gap:1px;padding:3px;flex:none}
+.badge-card .bot .qq i{background:#0E1013;border-radius:1px}
+
+/* ستيكر الأتوبيس */
+.decal{border-radius:16px;overflow:hidden;border:1px solid var(--line-2);background:#F4F6F8}
+.decal .glass{height:50px;display:flex;gap:6px;padding:9px 14px;background:#F4F6F8;border-bottom:1px solid #DDE2E8}
+.decal .glass i{flex:1;background:#2B333D;border-radius:4px}
+.decal .glass i.dr{flex:.5;background:#454F5C;border-radius:4px 4px 2px 2px}
+.decal .side{padding:15px 16px;display:flex;align-items:center;gap:13px;background:#fff}
+.decal .side .sq{width:44px;height:44px;border-radius:13px;flex:none;display:grid;place-items:center;background:linear-gradient(145deg,#FF8B33,#CE5405)}
+.decal .side .sq svg{width:25px;height:25px}
+.decal .side .tx .a{font-family:var(--display);font-weight:900;font-size:19px;color:#14181D;line-height:1.15}
+.decal .side .tx .b{font-size:10.5px;color:#5C6673;font-weight:600}
+.decal .side .rt{margin-inline-start:auto;text-align:left;flex:none}
+.decal .side .rt .n{font-family:var(--mono);font-size:18px;font-weight:600;color:#CE5405;line-height:1.2}
+.decal .side .rt .l{font-size:9.5px;color:#5C6673}
+.decal .wheels{height:22px;display:flex;align-items:flex-start;padding:0 24px;background:#0E1013}
+.decal .wheels i{width:24px;height:24px;border-radius:999px;background:#20252C;border:4px solid #14171C;flex:none;margin-top:-2px}
+.decal .wheels span{flex:1}
+
+/* أيقونة التطبيق على شاشة الموبايل */
+.homescreen{border-radius:20px;overflow:hidden;padding:20px 16px 16px;background:linear-gradient(165deg,#243244,#0E1013 64%);border:1px solid var(--line-2)}
+.homescreen .hrow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.homescreen figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.homescreen .ap{width:100%;aspect-ratio:1;border-radius:26%;display:grid;place-items:center;background:rgba(255,255,255,.09)}
+.homescreen .ap.on{background:linear-gradient(145deg,#FF8B33,#CE5405);box-shadow:0 8px 22px rgba(255,122,26,.36)}
+.homescreen .ap svg{width:54%;height:54%}
+.homescreen figcaption{font-size:9.5px;color:rgba(255,255,255,.72);text-align:center}
+.homescreen .dot3{display:flex;justify-content:center;gap:5px;margin-top:18px}
+.homescreen .dot3 i{width:5px;height:5px;border-radius:999px;background:rgba(255,255,255,.28)}
+.homescreen .dot3 i.on{background:#fff}
+
+/* لافتة بوابة المصنع */
+.gate{border-radius:16px;background:#fff;color:var(--paper-ink);font-family:var(--display);padding:18px;text-align:center;border:6px solid var(--hi)}
+.gate .h{font-size:16px;font-weight:900;line-height:1.35}
+.gate .q{width:92px;height:92px;margin:14px auto;display:grid;grid-template-columns:repeat(11,1fr);grid-template-rows:repeat(11,1fr);gap:1px}
+.gate .q i{background:#0E1013}
+.gate .s{font-size:11px;color:var(--paper-ink-2);line-height:1.65}
+.gate .f{
+  margin-top:13px;padding-top:11px;border-top:1.5px dashed var(--paper-line);
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  font-size:12px;font-weight:900;color:#CE5405;
+}
+.gate .f svg{width:15px;height:15px;flex:none}
+
+/* نبرة الكلام */
+.voice{
+  margin-top:36px;border:1px solid var(--line-2);border-radius:18px;padding:26px;
+  background:var(--ground-2);display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap;
+}
+.voice .lft{flex:1;min-width:250px}
+.voice h3{font-size:19px;margin-bottom:10px}
+.voice p{color:var(--ink-2);font-size:15px;line-height:1.8}
+.voice .says{flex:1;min-width:250px;display:grid;gap:10px}
+.voice .says > div{display:grid;grid-template-columns:20px 1fr;gap:11px;align-items:start;font-size:14px;line-height:1.7}
+.voice .says .y{color:var(--go);font-weight:900}
+.voice .says .n{color:var(--stop);font-weight:900}
+.voice .says .bad{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--line-2)}
+
+/* شاشة نشر وردية — نموذج */
+.form-row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.fld{flex:1;min-width:120px;background:#fff;border:1.5px solid var(--paper-line);border-radius:12px;padding:9px 12px}
+.fld .a{font-size:9.5px;color:var(--paper-ink-3);font-weight:700}
+.fld .b{font-size:14px;font-weight:900;margin-top:2px;font-variant-numeric:tabular-nums}
+.fld.hot{border-color:var(--hi);background:#FFF9F4}
+.fld.hot .b{color:#CE5405}
+.est{
+  margin-top:14px;background:#14181D;color:#fff;border-radius:14px;padding:14px 16px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.est .v{font-size:24px;font-weight:900;color:#22C55E;line-height:1.15;font-variant-numeric:tabular-nums}
+.est .l{font-size:11px;opacity:.6}
+.est .sep{width:1px;height:34px;background:rgba(255,255,255,.14)}
+
+/* قاعدة العمال */
+.pool{background:#fff;border:1px solid var(--paper-line);border-radius:14px;margin-top:14px;overflow:hidden}
+.pool .ph,.pool .pr{display:grid;grid-template-columns:1.5fr .8fr .55fr .6fr .8fr .7fr;gap:10px;align-items:center;padding:11px 16px}
+.pool .ph{background:var(--paper-2);font-size:10.5px;color:var(--paper-ink-3);font-weight:700}
+.pool .pr{border-top:1px solid var(--paper-line);font-size:12px}
+.pool .pr .w{font-weight:800}
+.pool .pr .g{color:var(--paper-ink-2)}
+.pool .stars{color:#D98A00;font-size:11px;letter-spacing:.5px}
+.pool .inv{
+  font-size:10px;font-weight:900;padding:5px 10px;border-radius:999px;text-align:center;
+  background:#FFF1E7;color:#D4530A;
+}
+.pool .inv.sent{background:#E4F6EC;color:#12A150}
+
+
+/* ═════════════════════════════════════════════════════
+   البنر — فجر صناعي وتلات تلفونات
+   ═════════════════════════════════════════════════════ */
+.hero{
+  position:relative;
+  padding:60px 0 72px;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  isolation:isolate;
+}
+.hero::before{content:none}
+
+.sky{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.sky svg{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:max(1600px,100%);height:auto;display:block}
+.hero::after{content:"";position:absolute;z-index:0;pointer-events:none;left:50%;top:-160px;transform:translateX(-50%);width:min(1100px,120%);height:620px;background:radial-gradient(closest-side ellipse at 50% 50%,rgba(255,122,26,.14),transparent 100%)}
+
+.grain{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:160px 160px;
+}
+
+.hero-inner{position:relative;z-index:2}
+.hero .lockup{margin-bottom:30px}
+.hero .thesis{
+  text-shadow:0 2px 26px rgba(0,0,0,.6);
+  max-width:24ch;
+}
+.hero .hero-note{max-width:56ch;text-shadow:0 1px 14px rgba(0,0,0,.55)}
+.hero .facts{margin-top:56px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+
+/* ─────────── رَف التلفونات ─────────── */
+.rig{
+  position:relative;
+  display:flex;align-items:flex-end;justify-content:center;
+  gap:clamp(2px,1.4vw,20px);
+  margin-top:40px;
+}
+.rig::before{
+  content:"";position:absolute;z-index:0;
+  left:50%;bottom:-14px;transform:translateX(-50%);
+  width:min(820px,96%);height:140px;border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(0,0,0,.62),rgba(0,0,0,0) 70%);
+  filter:blur(8px);
+}
+.dev{position:relative;flex:none;width:calc(340px * var(--k));height:calc(640px * var(--k))}
+.dev .phone{
+  position:absolute;top:0;left:50%;margin:0;
+  transform:translateX(-50%) scale(var(--k));
+  transform-origin:top center;
+}
+.dev.s{--k:.58;z-index:1}
+.dev.m{--k:.74;z-index:3}
+.dev.m .phone{box-shadow:0 44px 96px rgba(0,0,0,.7),0 0 0 1px var(--line-2)}
+.dev.tilt-r{transform:rotate(4.5deg) translateY(28px)}
+.dev.tilt-l{transform:rotate(-4.5deg) translateY(28px)}
+.dev.s .phone::after{
+  content:"";position:absolute;inset:0;border-radius:38px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(14,16,19,.06),rgba(14,16,19,.34));
+}
+
+.rig-cap{
+  position:relative;z-index:2;
+  margin-top:34px;text-align:center;
+  color:var(--ink-3);font-size:13.5px;
+}
+
+@media (max-width:980px){
+  .dev.s{--k:.44}
+  .dev.m{--k:.58}
+}
+@media (max-width:660px){
+  .hero{padding:56px 0 60px}
+  .dev.tilt-r,.dev.tilt-l{display:none}
+  .dev.m{--k:.78}
+  .rig{margin-top:42px}
+}
+
+/* ═════════════════════════════════════════════════════
+   تفاصيل الـ UI — شريط الحالة، القايمة السفلية، الأيقونات
+   ═════════════════════════════════════════════════════ */
+
+/* مؤشّر الصفحة الرئيسية */
+.pscreen::after{
+  content:"";position:absolute;z-index:5;
+  left:50%;bottom:6px;transform:translateX(-50%);
+  width:106px;height:4px;border-radius:99px;
+  background:rgba(20,24,29,.26);pointer-events:none;
+}
+.pscreen.dark::after{background:rgba(255,255,255,.3)}
+
+/* شريط الحالة */
+.statusbar{padding:11px 18px 3px;font-weight:500}
+.statusbar .rgt{display:flex;align-items:center;gap:5px;direction:ltr}
+.statusbar .rgt svg{display:block;fill:currentColor}
+.statusbar .rgt b{font-weight:600;font-size:9.5px}
+
+/* القايمة السفلية */
+.a-nav{padding:7px 4px 20px}
+.a-nav div .i{
+  display:flex;align-items:center;justify-content:center;
+  width:22px;height:22px;margin:0 auto 3px;opacity:.4;
+}
+.a-nav div .i svg{
+  width:21px;height:21px;display:block;
+  stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;
+}
+.a-nav div.on .i{opacity:1}
+
+/* أيقونات جوّه الكروت */
+.bus .ic{display:flex;align-items:center;flex:none}
+.bus .ic svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.frow .fi{display:flex;align-items:center;flex:none;color:var(--paper-ink-3)}
+.frow .fi svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cinfo .j{display:flex;align-items:center;gap:5px}
+.cinfo .j svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;opacity:.75}
+.ttl{display:flex;align-items:center;gap:7px}
+.ttl svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.avatar svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.listenbtn svg{flex:none}
+
+
+/* ═════════════════════════════════════════════════════
+   الخلفية — ورقة رسم صناعية بدل الرسمة
+   طبقة واحدة ثابتة تحت الصفحة كلها: تدرّج · جريد · حبيبات
+   ═════════════════════════════════════════════════════ */
+.bg{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(52% 40% at 88% -6%, rgba(255,122,26,.30), transparent 66%),
+    radial-gradient(48% 38% at 2%  18%, rgba(66,120,205,.16), transparent 70%),
+    radial-gradient(58% 40% at 100% 52%,rgba(255,122,26,.11), transparent 70%),
+    radial-gradient(46% 34% at -4% 76%, rgba(34,197,94,.085), transparent 72%),
+    radial-gradient(70% 46% at 50% 108%,rgba(255,122,26,.10), transparent 68%);
+}
+.bg::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(150,172,200,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(150,172,200,.05) 1px,transparent 1px),
+    linear-gradient(rgba(150,172,200,.075) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(150,172,200,.075) 1px,transparent 1px);
+  background-size:30px 30px,30px 30px,150px 150px,150px 150px;
+  -webkit-mask-image:radial-gradient(110% 90% at 50% 22%,#000 0%,rgba(0,0,0,.45) 52%,transparent 84%);
+  mask-image:radial-gradient(110% 90% at 50% 22%,#000 0%,rgba(0,0,0,.45) 52%,transparent 84%);
+}
+.bg::after{
+  content:"";position:absolute;inset:0;opacity:.038;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:150px 150px;
+}
+
+/* ─────────── مخطّط الخطوط في البنر ─────────── */
+.hero{isolation:auto}
+.hero::after{content:none}
+.lines{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.lines svg *{fill:none}
+.lines svg{
+  position:absolute;left:50%;top:0;transform:translateX(-50%);
+  width:max(1600px,100%);height:100%;display:block;
+}
+.lines .ln{fill:none;stroke:rgba(168,190,216,.10);stroke-width:2;stroke-linecap:round}
+.lines .ln-dim{stroke:rgba(168,190,216,.055);stroke-width:1.5}
+.lines .glow{fill:none;stroke:#FF7A1A;stroke-width:7;stroke-linecap:round;opacity:.30;filter:blur(9px)}
+.lines .live{fill:none;stroke:#FF9440;stroke-width:2.5;stroke-linecap:round;opacity:.7}
+.lines .pulse{
+  fill:none;stroke:#FFA65C;stroke-width:3.5;stroke-linecap:round;
+  stroke-dasharray:70 2200;
+  animation:travel 11s linear infinite;
+}
+@keyframes travel{from{stroke-dashoffset:0}to{stroke-dashoffset:-2270}}
+.lines .nd{fill:#0E1013;stroke:rgba(168,190,216,.34);stroke-width:2}
+.lines .nd-hot{fill:#0E1013;stroke:#FF7A1A;stroke-width:2.5}
+.lines .halo{fill:rgba(255,122,26,.16);stroke:none;transform-box:fill-box;transform-origin:center;
+  animation:beat 3.4s ease-in-out infinite}
+.lines .halo:nth-of-type(2){animation-delay:1.7s}
+@keyframes beat{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.55);opacity:.35}}
+
+.lines-m{display:none}
+.lines-m .pulse{stroke-dasharray:38 560;animation:travel-m 6.5s linear infinite}
+@keyframes travel-m{from{stroke-dashoffset:0}to{stroke-dashoffset:-598}}
+@media (max-width:660px){
+  .lines:not(.lines-m){display:none}
+  .lines-m{
+    display:block;position:relative;inset:auto;overflow:visible;
+    margin:34px 0 -6px;z-index:1;
+  }
+  .lines-m svg{
+    position:relative;left:auto;top:auto;transform:none;
+    width:100%;height:auto;overflow:visible;
+  }
+}
+
+/* دفا تحت التلفونات */
+.rig::after{
+  content:"";position:absolute;z-index:0;
+  left:50%;bottom:40px;transform:translateX(-50%);
+  width:min(900px,100%);height:340px;border-radius:50%;
+  background:radial-gradient(closest-side ellipse at 50% 50%,rgba(255,122,26,.30),transparent 100%);
+}
+.rig > .dev{z-index:2}
+
+/* ─────────── عناصر زجاجية عايمة ─────────── */
+.hero-pill{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:8px 15px 8px 13px;border-radius:999px;margin-bottom:26px;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  border:1px solid rgba(255,255,255,.13);
+  font-size:12.5px;font-weight:600;color:var(--ink-2);
+}
+.hero-pill i{
+  width:7px;height:7px;border-radius:999px;background:var(--go);flex:none;
+  box-shadow:0 0 0 4px rgba(34,197,94,.18);
+  animation:beat2 2.6s ease-in-out infinite;
+}
+@keyframes beat2{0%,100%{box-shadow:0 0 0 4px rgba(34,197,94,.18)}50%{box-shadow:0 0 0 8px rgba(34,197,94,.05)}}
+
+.chipg{
+  position:absolute;z-index:4;
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;border-radius:17px;
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(22px) saturate(165%);
+  -webkit-backdrop-filter:blur(22px) saturate(165%);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 20px 48px rgba(0,0,0,.5);
+  white-space:nowrap;
+  animation:drift 7s ease-in-out infinite;
+}
+.chipg .ico{
+  width:34px;height:34px;border-radius:11px;flex:none;display:grid;place-items:center;
+}
+.chipg .ico svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chipg .big{font-family:var(--display);font-weight:900;font-size:16px;line-height:1.2;color:var(--ink)}
+.chipg .sub{font-size:11px;color:var(--ink-3);margin-top:2px}
+.chipg.a{left:0;top:9%;animation-delay:-1.4s}
+.chipg.a .ico{background:rgba(34,197,94,.14);color:var(--go)}
+.chipg.b{right:0;bottom:11%;animation-delay:-4.2s}
+.chipg.b .ico{background:var(--hi-wash);color:var(--hi)}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+@media (max-width:1180px){.chipg{display:none}}
+
+/* ═════════════════════════════════════════════════════
+   أسطح زجاجية — بتشتغل لأن ورا كل حاجة بقى فيه تدرّج
+   ═════════════════════════════════════════════════════ */
+.fact,
+.pane,
+.rule,
+.mcard,
+.beven,
+.lane,
+.lane.now,
+.lane.new,
+.bd-box,
+.voice,
+.tblwrap,
+.browser,
+.stage.gate{
+  background-color:rgba(255,255,255,.045);
+  backdrop-filter:blur(18px) saturate(150%);
+  -webkit-backdrop-filter:blur(18px) saturate(150%);
+  border-color:rgba(255,255,255,.10);
+}
+.pane.hot{border-color:rgba(255,122,26,.34)}
+.lane.now{border-color:rgba(240,83,58,.30)}
+.lane.new{border-color:rgba(34,197,94,.32)}
+.beven{border-color:rgba(34,197,94,.30)}
+.node{background-color:rgba(255,255,255,.055);border-color:rgba(255,255,255,.13)}
+.node.mid{background-color:rgba(240,83,58,.09);border-color:rgba(240,83,58,.5)}
+.node.us{background-color:rgba(34,197,94,.11);border-color:rgba(34,197,94,.45)}
+.facts{background:rgba(255,255,255,.07)}
+.mark-stage{background-color:rgba(0,0,0,.28)}
+.homescreen,.decal,.gate{backdrop-filter:none;-webkit-backdrop-filter:none}
+
+/* حدّ لامع رفيّع — الحتة اللي بتخلي الزجاج يبان زجاج */
+.facts,.rule,.beven,.lane,.voice{position:relative}
+.facts::after,
+.rule::after,
+.beven::after,
+.lane::after,
+.voice::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:linear-gradient(150deg,rgba(255,255,255,.26),rgba(255,255,255,.03) 38%,transparent 72%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  pointer-events:none;
+}
+
+/* القايمة العلوية — زجاج أوضح */
+.nv{
+  background:linear-gradient(180deg,rgba(20,23,28,.86),rgba(14,16,19,.72));
+  border-bottom-color:rgba(255,255,255,.09);
+}
+
+/* الفواصل بين الأقسام تبقى شعرة لامعة بدل خط ميّت */
+section{border-top:0;position:relative}
+section::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.13) 22%,rgba(255,255,255,.13) 78%,transparent);
+}
+section:first-of-type::before{content:none}
+.close{border-top:0;position:relative}
+.close::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.13) 22%,rgba(255,255,255,.13) 78%,transparent);
+}
+
+/* ═════════════════════════════════════════════════════
+   صفحة التقييم — الإضافات
+   ═════════════════════════════════════════════════════ */
+.confid{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:7px 14px;border-radius:999px;
+  background:rgba(240,83,58,.10);border:1px solid rgba(240,83,58,.32);
+  color:#FF8E78;font-size:11.5px;font-weight:700;
+  font-family:var(--mono);letter-spacing:.04em;
+}
+.confid svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;flex:none}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(216px,1fr));gap:16px;margin-top:40px}
+.step{
+  background-color:rgba(255,255,255,.045);
+  backdrop-filter:blur(18px) saturate(150%);
+  -webkit-backdrop-filter:blur(18px) saturate(150%);
+  border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:22px 20px;
+}
+.step .no{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--hi);
+  display:block;margin-bottom:12px;
+}
+.step h4{font-size:17px;margin-bottom:9px;line-height:1.35}
+.step p{color:var(--ink-2);font-size:14px;line-height:1.8}
+
+/* ─────────── صندوق التقييم ─────────── */
+.ratebox{
+  margin-top:44px;border-radius:24px;padding:34px 32px;
+  background-color:rgba(255,255,255,.055);
+  backdrop-filter:blur(24px) saturate(165%);
+  -webkit-backdrop-filter:blur(24px) saturate(165%);
+  border:1px solid rgba(255,255,255,.13);
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+  position:relative;
+}
+.ratebox::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:linear-gradient(150deg,rgba(255,255,255,.30),rgba(255,255,255,.03) 40%,transparent 74%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;pointer-events:none;
+}
+.ratebox > *{position:relative;z-index:1}
+.q{margin-bottom:26px}
+.q:last-of-type{margin-bottom:0}
+.q > label,.q > .lbl{
+  display:block;font-family:var(--display);font-weight:900;font-size:17px;margin-bottom:5px;
+}
+.q .hint{color:var(--ink-3);font-size:13px;margin-bottom:14px;line-height:1.7}
+
+/* نجوم */
+.stars{display:flex;gap:8px;flex-direction:row-reverse;justify-content:flex-end}
+.stars input{position:absolute;opacity:0;width:1px;height:1px}
+.stars label{
+  cursor:pointer;line-height:0;display:block;border-radius:8px;
+  transition:transform .14s ease;
+}
+.stars label svg{width:42px;height:42px;display:block;fill:rgba(255,255,255,.09);stroke:rgba(255,255,255,.22);stroke-width:1.2}
+.stars label:hover{transform:scale(1.12)}
+.stars input:focus-visible + label{outline:2px solid var(--hi);outline-offset:3px}
+.stars input:checked + label svg,
+.stars input:checked ~ input + label svg{fill:var(--hi);stroke:var(--hi)}
+.stars:hover label svg{fill:rgba(255,255,255,.09);stroke:rgba(255,255,255,.22)}
+.stars label:hover svg,
+.stars label:hover ~ label svg{fill:#FF9440;stroke:#FF9440}
+.rate-word{
+  font-family:var(--display);font-weight:900;font-size:15px;color:var(--hi);
+  margin-top:12px;min-height:22px;
+}
+@media (max-width:520px){.stars label svg{width:34px;height:34px}}
+
+/* شرايح الاختيار */
+.opts{display:flex;flex-wrap:wrap;gap:9px}
+.opts input{position:absolute;opacity:0;width:1px;height:1px}
+.opts label{
+  cursor:pointer;padding:10px 16px;border-radius:13px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);
+  font-size:14px;font-weight:600;color:var(--ink-2);
+  transition:all .16s ease;
+}
+.opts label:hover{background:rgba(255,255,255,.09);color:var(--ink)}
+.opts input:checked + label{
+  background:var(--hi-wash);border-color:rgba(255,122,26,.55);color:var(--hi);font-weight:800;
+}
+.opts input:focus-visible + label{outline:2px solid var(--hi);outline-offset:3px}
+
+textarea{
+  width:100%;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.11);
+  border-radius:14px;padding:14px 16px;color:var(--ink);
+  font-family:var(--body);font-size:15px;line-height:1.8;resize:vertical;min-height:96px;
+}
+textarea:focus{outline:2px solid var(--hi);outline-offset:1px;border-color:transparent}
+textarea::placeholder{color:var(--ink-3)}
+.who2{display:flex;gap:10px;flex-wrap:wrap}
+.who2 input{
+  flex:1;min-width:170px;
+  background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.11);
+  border-radius:13px;padding:13px 15px;color:var(--ink);
+  font-family:var(--body);font-size:15px;
+}
+.who2 input:focus{outline:2px solid var(--hi);outline-offset:1px;border-color:transparent}
+.who2 input::placeholder{color:var(--ink-3)}
+.chars{text-align:left;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:6px}
+
+.send{
+  margin-top:30px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  padding-top:24px;border-top:1px solid rgba(255,255,255,.09);
+}
+button.go{
+  background:linear-gradient(145deg,#FF8B33,#D45B08);color:#fff;border:0;
+  border-radius:14px;padding:15px 34px;cursor:pointer;
+  font-family:var(--display);font-weight:900;font-size:16px;
+  box-shadow:0 14px 34px rgba(255,122,26,.30);
+  transition:transform .14s ease,box-shadow .14s ease;
+}
+button.go:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(255,122,26,.40)}
+button.go:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+button.go:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.send .fine{color:var(--ink-3);font-size:13px;flex:1;min-width:200px;line-height:1.7}
+
+.msg{
+  margin-top:18px;border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.8;
+  display:none;
+}
+.msg.on{display:block}
+.msg.warn{background:rgba(255,197,61,.10);border:1px solid rgba(255,197,61,.34);color:#FFD98A}
+.msg.bad{background:rgba(240,83,58,.10);border:1px solid rgba(240,83,58,.34);color:#FF9E8B}
+.msg a{color:inherit;font-weight:800}
+
+/* ─────────── النتايج ─────────── */
+.results{display:none}
+.results.on{display:block}
+.res-top{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-bottom:26px}
+.res-score{text-align:center;flex:none}
+.res-score .n{
+  font-family:var(--display);font-weight:900;font-size:64px;line-height:1;
+  color:var(--hi);font-variant-numeric:tabular-nums;
+}
+.res-score .of{color:var(--ink-3);font-size:12px;margin-top:4px}
+.res-bars{flex:1;min-width:230px;display:grid;gap:7px}
+.bar{display:flex;align-items:center;gap:10px;font-size:12px}
+.bar .k{color:var(--ink-3);font-family:var(--mono);flex:none;width:30px;text-align:left}
+.bar .t{flex:1;height:9px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.bar .t i{display:block;height:100%;border-radius:99px;background:var(--hi);transition:width .6s cubic-bezier(.2,.7,.3,1)}
+.bar .c{color:var(--ink-3);font-family:var(--mono);flex:none;width:26px}
+
+.res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:8px}
+.res-cell{
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
+  border-radius:15px;padding:15px 16px;
+}
+.res-cell .l{color:var(--ink-3);font-size:12px}
+.res-cell .v{
+  font-family:var(--display);font-weight:900;font-size:26px;line-height:1.2;margin-top:3px;
+  font-variant-numeric:tabular-nums;
+}
+.res-cell .s{color:var(--ink-3);font-size:11px;margin-top:2px}
+
+.says-list{margin-top:26px;display:grid;gap:10px}
+.say-item{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);
+  border-radius:15px;padding:14px 16px;
+}
+.say-item .who{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-3);
+  display:flex;align-items:center;gap:8px;margin-bottom:7px;
+}
+.say-item .who b{color:var(--hi);letter-spacing:0;font-family:var(--display)}
+.say-item p{color:var(--ink-2);font-size:14.5px;line-height:1.8}
+.empty{color:var(--ink-3);font-size:14px;text-align:center;padding:22px}
+
+/* ─────────── التواصل ─────────── */
+.owner{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px}
+.card-own{
+  background-color:rgba(255,255,255,.05);
+  backdrop-filter:blur(20px) saturate(155%);
+  -webkit-backdrop-filter:blur(20px) saturate(155%);
+  border:1px solid rgba(255,255,255,.11);border-radius:20px;padding:26px 24px;
+}
+.card-own .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.card-own h3{font-size:21px;margin-top:9px}
+.card-own p{color:var(--ink-2);font-size:14.5px;line-height:1.8;margin-top:10px}
+.calls{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.calls a{
+  display:flex;align-items:center;gap:9px;text-decoration:none;
+  padding:12px 18px;border-radius:13px;font-size:14.5px;font-weight:800;
+  font-family:var(--display);transition:transform .14s ease;
+}
+.calls a:hover{transform:translateY(-2px)}
+.calls a:focus-visible{outline:2px solid var(--hi);outline-offset:3px}
+.calls svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.calls .wa{background:#1FA855;color:#fff}
+.calls .tel{background:rgba(255,255,255,.08);color:var(--ink);border:1px solid rgba(255,255,255,.14)}
+.num{font-family:var(--mono);direction:ltr;text-align:right;display:inline-block}
+
+.sharebox{
+  margin-top:30px;border-radius:20px;padding:24px 26px;
+  background-color:rgba(255,255,255,.05);
+  backdrop-filter:blur(20px) saturate(155%);
+  -webkit-backdrop-filter:blur(20px) saturate(155%);
+  border:1px solid rgba(255,255,255,.11);
+  display:flex;gap:22px;align-items:center;flex-wrap:wrap;
+}
+.sharebox > div:first-child{flex:1;min-width:250px}
+.sharebox .calls{margin-top:0}
+.legal{
+  margin-top:40px;border-radius:18px;padding:24px 26px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);
+}
+.legal h4{font-size:16px;margin-bottom:11px;color:var(--hi)}
+.legal p{color:var(--ink-2);font-size:13.5px;line-height:1.9}
+.legal p + p{margin-top:9px}
+.legal .sig{
+  margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.10);
+  font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.9;
+}
+
+</style>
+</head>
+<body>
+<nav class="nv">
+  <div class="nv-in">
+    <a class="nv-brand" href="#top">
+      <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M20 6a14 14 0 1 0 13 9" stroke="#FF7A1A" stroke-width="4.5" stroke-linecap="round"/>
+        <circle cx="32.5" cy="8.5" r="4" fill="#FF7A1A"/>
+      </svg>
+      <span class="wd">وردية</span>
+    </a>
+    <div class="nv-links">
+      <a href="#problem">المشكلة</a>
+      <a href="#app">التطبيق</a>
+      <a href="#brand">الهوية</a>
+      <a href="#rate">قيّم الفكرة</a>
+      <a href="#contact">التواصل</a>
+    </div>
+  </div>
+  <div class="nv-prog"><i id="prog"></i></div>
+</nav>
+
+<div class="bg" aria-hidden="true"></div>
+
+<!-- ══════════ HERO ══════════ -->
+<header class="hero" id="top">
+
+  <div class="lines" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+      <path class="ln-dim" d="M-40 250 H240 L330 160 H700 L790 250 H1120 L1210 160 H1640"/>
+      <path class="ln-dim" d="M-40 830 H300 L390 740 H760 L850 830 H1210 L1300 740 H1640"/>
+      <path class="ln-dim" d="M1010 -40 V150 L1090 230 V430"/>
+      <path class="ln" d="M-40 620 H180 L280 520 H520"/>
+      <path class="ln" d="M1080 470 H1300 L1400 370 H1640"/>
+      <path class="ln" d="M420 900 V760 L520 660 H840"/>
+      <path class="glow" d="M-40 700 H360 L470 590 H760 L870 480 H1180 L1290 370 H1640"/>
+      <path class="live" id="route" d="M-40 700 H360 L470 590 H760 L870 480 H1180 L1290 370 H1640"/>
+      <use class="pulse" href="#route"/>
+      <circle class="halo" cx="360" cy="700" r="20"/>
+      <circle class="nd-hot" cx="360" cy="700" r="7"/>
+      <circle class="halo" cx="1180" cy="480" r="20"/>
+      <circle class="nd-hot" cx="1180" cy="480" r="7"/>
+      <circle class="nd" cx="760" cy="590" r="6"/>
+      <circle class="nd" cx="700" cy="160" r="5"/>
+      <circle class="nd" cx="1090" cy="230" r="5"/>
+      <circle class="nd" cx="760" cy="740" r="5"/>
+      <circle class="nd" cx="520" cy="660" r="5"/>
+    </svg>
+  </div>
+
+  <div class="wrap hero-inner">
+    <div class="hero-pill"><i></i>فكرة بشتغل عليها · مدينة السادات · قولّي رأيك</div>
+    <div class="lockup">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none">
+          <path d="M20 6a14 14 0 1 0 13 9" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32.5" cy="8.5" r="4" fill="#fff"/>
+        </svg>
+      </div>
+      <div>
+        <h1>وردية</h1>
+        <p class="tag">شغلك ورجوعك — من غير سمسار</p>
+      </div>
+    </div>
+
+    <p class="thesis">العامل بياخد <b>أجره كامل</b>، والمصنع بيملا الوردية في <b>ساعات</b> بدل أيام.</p>
+    <p class="hero-note">تطبيق بيوصّل ورديات مصانع مدينة السادات للعامل مباشرة. الأجر كامل من غير خصم مقاول، والرواح والرجوع محسوبين.</p>
+
+    <div class="lines lines-m" aria-hidden="true">
+      <svg viewBox="0 0 400 122" preserveAspectRatio="xMidYMid meet">
+        <path class="ln-dim" d="M-20 26 H86 L124 4 H420"/>
+        <path class="glow" d="M-20 104 H108 L158 54 H276 L318 22 H420"/>
+        <path class="live" id="route-m" d="M-20 104 H108 L158 54 H276 L318 22 H420"/>
+        <use class="pulse" href="#route-m"/>
+        <circle class="halo" cx="108" cy="104" r="15"/>
+        <circle class="nd-hot" cx="108" cy="104" r="6"/>
+        <circle class="halo" cx="276" cy="54" r="15"/>
+        <circle class="nd-hot" cx="276" cy="54" r="6"/>
+        <circle class="nd" cx="158" cy="54" r="4.5"/>
+      </svg>
+    </div>
+
+    <div class="facts rise">
+      <div class="fact"><div class="n">٠ جنيه</div><div class="l">اللي العامل بيدفعه</div><div class="s">المصنع هو اللي بيدفع</div></div>
+      <div class="fact"><div class="n">٣ ساعات</div><div class="l">الهدف لملء وردية</div><div class="s">بدل ٣ أيام مع المقاول</div></div>
+      <div class="fact"><div class="n">فكرة</div><div class="l">لسه مانزلتش السوق</div><div class="s">الصفحة دي عشان تقول رأيك فيها</div></div>
+    </div>
+  </div>
+</header>
+
+
+<div class="wrap">
+
+<!-- PROBLEM -->
+<section id="problem">
+  <span class="eyebrow">المشكلة</span>
+  <h2 style="font-size:clamp(26px,4vw,36px);max-width:20ch">أكبر تجمّع مصانع في المحافظة، بيوظّف بطريقة من التمانينات</h2>
+  <p class="lede" style="margin-top:18px">مصانع التعبئة والتغليف فيها دوران عمالة عالي — بتحتاج تملا وردية بكرا، مش توظّف موظف السنة الجاية. والأداة الوحيدة الموجودة لده دلوقتي هي راجل بيعرف ناس.</p>
+
+  <div class="three" rise">
+    <div class="pane">
+      <span class="who">من ناحية العامل</span>
+      <h3>الشغل منتور، والوسيط بياخد من جيبه</h3>
+      <p>الوظايف مبعترة على تيك توك وجروبات فيسبوك ومواقع متفرقة، وأغلبها إعلانات وسطاء مش من المصنع. عشان توصل لوردية، غالبًا بتعدّي على مقاول أنفار بياخد خصم من أجرك — أحيانًا مقابل «تدبير المواصلات» بس.</p>
+    </div>
+    <div class="pane">
+      <span class="who">من ناحية المصنع</span>
+      <h3>بيكلّم المقاول وبعدين يستنّى</h3>
+      <p>المصنع مش عارف مين هييجي بكرا ولا كام واحد. مفيش قاعدة عمالة معروفة، ومفيش سجل حضور موثّق يقدر يرجعله. وكل مرة بيبدأ من الصفر مع نفس الناس.</p>
+    </div>
+    <div class="pane hot">
+      <span class="who">والعقدة الحقيقية</span>
+      <h3>محدش بيقولك الأتوبيس بيقف فين</h3>
+      <p>كل إعلان وظيفة بيقول «يوجد مواصلات» لأنها ميزة حاسمة في مدينة مساحتها ٥٠٠ كم². بس مفيش إعلان واحد بيقولك <b>نقطة الركوب والساعة كام</b>. الحتة دي بالذات هي اللي المقاول بيتحكّم بيها.</p>
+    </div>
+  </div>
+
+  <div class="rule" rise">
+    <span class="badge">قاعدة مفيش تنازل عنها</span>
+    <div class="body">
+      <h3>العامل مابيدفعش ولا جنيه. أبدًا.</h3>
+      <p>المصنع هو اللي بيدفع، وبيدفع أقل مما كان بيدفعه للمقاول. دي مش نقطة تسويق — دي الفرق بين إنك تحل المشكلة وإنك تبقى نسخة جديدة منها.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT DOES -->
+<section id="app">
+  <span class="eyebrow">التطبيق</span>
+  <h2 style="font-size:clamp(26px,4vw,36px);max-width:24ch">اللي بيحصل — من غير تفاصيل التنفيذ</h2>
+  <p class="lede" style="margin-top:18px">الصفحة دي بتقولك <b style="color:var(--ink)">إيه</b> اللي بيحصل. <b style="color:var(--ink)">إزاي</b> بيحصل — الشاشات وطريقة التأكيد ونظام التشغيل — مش منشور هنا عن قصد.</p>
+
+  <div class="three">
+    <div class="pane">
+      <span class="who">للعامل</span>
+      <h3>بيشوف شغل بكرا وهو قاعد في البيت</h3>
+      <p>ورديات قريبة منه، الأجر مكتوب قدّامه قبل ما يوافق، والرواح والرجوع محسوبين. مفيش سيرة ذاتية، ولا ورق، ولا جنيه بيتدفع منه.</p>
+    </div>
+    <div class="pane">
+      <span class="who">للمصنع</span>
+      <h3>بيملا الوردية في ساعات بدل أيام</h3>
+      <p>بيعرف مين جاي بكرا قبل ما الخط يبدأ، وبيبني قاعدة عمالة معروفة بدل ما يبدأ من الصفر كل مرة مع نفس الناس.</p>
+    </div>
+    <div class="pane hot">
+      <span class="who">اللي بيتشال من النص</span>
+      <h3>الوسيط</h3>
+      <p>مفيش حد واقف بين العامل وأجره. الخصم اللي كان بيروح للمقاول بيرجع للعامل، والمصنع نفسه بيدفع أقل مما كان بيدفعه.</p>
+    </div>
+  </div>
+
+  <div class="rule">
+    <span class="badge">مش منشور</span>
+    <div class="body">
+      <h3>الشاشات ونظام التشغيل مش على اللينك ده</h3>
+      <p>التصميم كامل موجود — شاشات العامل، لوحة المصنع، وطريقة الشغل من أول التسجيل لآخر الأجر. بس ده بيتعرض لواحد لواحد، مش على صفحة مفتوحة. لو انت مصنع في السادات أو حد جاد، كلّمني وأوريهولك.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ BRAND ══════════ -->
+<section id="brand">
+  <span class="eyebrow">الهوية</span>
+  <h2 style="font-size:clamp(26px,4vw,36px);max-width:24ch">هوية لازم تشتغل على شاشة رخيصة وعلى جنب أتوبيس</h2>
+  <p class="lede" style="margin-top:18px">التطبيق ده هيتفتح على موبايلات أندرويد رخيصة تحت شمس الظهر، وهيتشاف مطبوع على ستيكر وكارنيه وباب مصنع. فالهوية اتبنت على شرط واحد: <b style="color:var(--ink)">تتعرف من بعيد وفي ضوء وحش</b>.</p>
+
+  <div class="bd-grid">
+
+    <!-- العلامة -->
+    <div class="bd-box rise">
+      <div>
+        <span class="bd-lab">العلامة</span>
+        <h3 style="margin-top:8px">قوس ناقص، ونقطة بره</h3>
+      </div>
+      <div class="mark-stage">
+        <svg viewBox="0 0 40 40" fill="none" aria-label="علامة وردية">
+          <circle cx="20" cy="20" r="14" stroke="#2A3038" stroke-width="1" stroke-dasharray="2 3"/>
+          <path d="M20 6a14 14 0 1 0 13 9" stroke="#FF7A1A" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32.5" cy="8.5" r="4" fill="#FF7A1A"/>
+          <line x1="20" y1="2" x2="20" y2="38" stroke="#2A3038" stroke-width=".6"/>
+          <line x1="2" y1="20" x2="38" y2="20" stroke="#2A3038" stroke-width=".6"/>
+        </svg>
+      </div>
+      <p class="cap">القوس هو الوردية — بتبدأ وبتخلص. والنقطة اللي بره القوس هي نقطة البداية: أول حاجة في اليوم، وبره سور المصنع. مفيش ترس ولا مصنع ولا إيدين بتتصافح — دي أشكال بتاعة حد تاني.</p>
+      <div>
+        <span class="bd-lab">المقاسات</span>
+        <div class="mark-row" style="margin-top:11px">
+          <div class="mark-chip s1"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 6a14 14 0 1 0 13 9" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/><circle cx="32.5" cy="8.5" r="4" fill="#fff"/></svg></div>
+          <div class="mark-chip s2"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 6a14 14 0 1 0 13 9" stroke="#fff" stroke-width="5" stroke-linecap="round"/><circle cx="32.5" cy="8.5" r="4.4" fill="#fff"/></svg></div>
+          <div class="mark-chip s3"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 6a14 14 0 1 0 13 9" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="32.5" cy="8.5" r="5" fill="#fff"/></svg></div>
+          <div class="mark-chip s2 mono"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 6a14 14 0 1 0 13 9" stroke="#0E1013" stroke-width="5" stroke-linecap="round"/><circle cx="32.5" cy="8.5" r="4.4" fill="#0E1013"/></svg></div>
+        </div>
+      </div>
+      <p class="cap">التخانة بتزيد كل ما المقاس يصغر — عشان النقطة ماتضيعش على أيقونة ٢٤ بكسل. والنسخة اللون الواحد للطباعة على ستيكر أو ختم.</p>
+    </div>
+
+    <!-- اللون -->
+    <div class="bd-box rise">
+      <div>
+        <span class="bd-lab">اللون</span>
+        <h3 style="margin-top:8px">برتقالي ستر السلامة، مش برتقالي شركة تكنولوجيا</h3>
+      </div>
+      <div class="sw">
+        <div style="background:#FF7A1A;color:#1A0C02"><span class="nm">برتقالي الستر</span><span class="hx">#FF7A1A</span></div>
+        <div style="background:#22C55E;color:#04220F"><span class="nm">أخضر الدخول</span><span class="hx">#22C55E</span></div>
+        <div style="background:#F0533A;color:#2A0A05"><span class="nm">أحمر مجاش</span><span class="hx">#F0533A</span></div>
+        <div style="background:#FFC53D;color:#2A1D00"><span class="nm">أصفر متأخر</span><span class="hx">#FFC53D</span></div>
+        <div style="background:#0E1013;color:#EDF0F3"><span class="nm">أرضية المصنع</span><span class="hx">#0E1013</span></div>
+        <div style="background:#FFFFFF;color:#14181D"><span class="nm">ورق التطبيق</span><span class="hx">#FFFFFF</span></div>
+      </div>
+      <p class="cap">البرتقالي مأخوذ حرفيًا من ستر السلامة اللي العامل لابسه — لون معناه «شوفني» في المكان ده أصلًا. والتلاتة اللي بعده مش ألوان تزيين: أخضر يعني <b style="color:var(--go)">دخل</b>، أصفر <b style="color:var(--hold)">اتأخر</b>، أحمر <b style="color:var(--stop)">مجاش</b>. تلات حالات وبس، وهي نفسها على كل شاشة.</p>
+      <p class="cap">شاشات العامل <b style="color:var(--ink-2)">بيضا</b> عن قصد — الموبايل الرخيص شاشته باهتة والدارك بيختفي في الشمس. الدارك للوحة المصنع اللي جوّه مكتب.</p>
+    </div>
+
+    <!-- الخط -->
+    <div class="bd-box rise">
+      <div>
+        <span class="bd-lab">الخط</span>
+        <h3 style="margin-top:8px">تلاتة، وكل واحد ليه شغلانة</h3>
+      </div>
+      <div class="spec">
+        <div class="ln"><span class="m">Cairo 900</span><span class="t" style="font-family:var(--display);font-weight:900;font-size:28px">٢٥٠ جنيه</span></div>
+        <div class="ln"><span class="m">Cairo 700</span><span class="t" style="font-family:var(--display);font-weight:700;font-size:19px">وردية صباحية · ٨ ساعات</span></div>
+        <div class="ln"><span class="m">Plex Arabic 400</span><span class="t" style="font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:400;font-size:15px;color:var(--ink-2)">الأجر بيتقبض كاش آخر الوردية</span></div>
+        <div class="ln"><span class="m">Plex Mono 500</span><span class="t" style="font-family:var(--mono);font-size:16px;direction:ltr;text-align:right;color:var(--hi)">06:00 · 08:30 · 250 EGP</span></div>
+      </div>
+      <p class="cap">Cairo بوزن ٩٠٠ للأرقام الكبيرة — الأجر والساعة والميعاد. دي التلات حاجات اللي المفروض تتقرا من على بعد ذراع وانت ماشي. IBM Plex Sans Arabic للكلام اللي بيتقرا بالراحة. والمونو للأرقام اللي بتتصف تحت بعضها بس — مواعيد وأكواد وفلوس في جدول.</p>
+      <p class="cap">الأرقام <b style="color:var(--ink-2)">عربية شرقية</b> (٢٥٠ مش 250) في كل مكان يشوفه العامل. ودي مش نوستالجيا — دي اللي مكتوبة على الفلوس اللي في إيده.</p>
+    </div>
+
+    <!-- الأيقونات -->
+    <div class="bd-box rise">
+      <div>
+        <span class="bd-lab">الأيقونات</span>
+        <h3 style="margin-top:8px">تخانة واحدة، وكلها من عالم الشغل</h3>
+      </div>
+      <div class="icons">
+        <figure><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="12.5" rx="3"/><path d="M4 10h16M9 4v6M15 4v6"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/></svg><figcaption>الأتوبيس</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.2V12l3.2 2"/></svg><figcaption>الوردية</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.5" width="18" height="11" rx="2.5"/><circle cx="12" cy="12" r="2.7"/><path d="M6.6 12h.01M17.4 12h.01"/></svg><figcaption>الأجر</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.2"/><rect x="14" y="4" width="6" height="6" rx="1.2"/><rect x="4" y="14" width="6" height="6" rx="1.2"/><path d="M14 14h3v3M20 14v.01M20 17.5v2.5h-3M14 20v.01"/></svg><figcaption>التذكرة</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M4.5 20V10.5l4.7 3.2V10.5l4.7 3.2V7h5V20"/><path d="M17 4v3"/></svg><figcaption>المصنع</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 14.5a7.5 7.5 0 0 1 15 0"/><path d="M3 14.5h18"/><path d="M12 7V4.2"/></svg><figcaption>العامل</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><figcaption>نقطة الركوب</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13L7.5 14.5H4z"/><path d="M15.4 9.3a4 4 0 0 1 0 5.4"/><path d="M18 6.9a7.5 7.5 0 0 1 0 10.2"/></svg><figcaption>اسمعها</figcaption></figure>
+      </div>
+      <p class="cap">تخانة ١.٧ بكسل ثابتة، وزوايا مدوّرة — عشان تفضل واضحة لما تتصغّر لـ ١٦ بكسل جنب نص. وأيقونة السمّاعة ليها وزن أيقونة كاملة مش زرار مخبي، لأنها الفرق بين إن التطبيق يشتغل مع نص المستخدمين ولا كلهم.</p>
+    </div>
+  </div>
+
+  <!-- نبرة الكلام -->
+  <div class="voice rise">
+    <div class="lft">
+      <span class="bd-lab">الكلام</span>
+      <h3 style="margin-top:8px">اكتب زي ما حد هيقول لصاحبه</h3>
+      <p>مفيش «تسجيل الدخول» ولا «إتمام العملية بنجاح». العامل مش بيقرا لغة مواقع. الجملة الصح هي اللي لو قريتها بصوت عالي في قهوة مش هتبان غريبة.</p>
+      <p style="margin-top:12px;color:var(--ink-3);font-size:14px">وكل رقم في الشاشة لازم يبقى ورا كلمة توضّحه — «٢٥٠ جنيه» لوحدها مش كفاية، «٢٥٠ جنيه تتقبض في نفس اليوم» هي الجملة.</p>
+    </div>
+    <div class="says">
+      <div><span class="y">✓</span><span>احجز الوردية دي</span></div>
+      <div><span class="n">✕</span><span class="bad">تأكيد الحجز</span></div>
+      <div><span class="y">✓</span><span>الأجر بيتقبض في نفس اليوم</span></div>
+      <div><span class="n">✕</span><span class="bad">يتم صرف المستحقات فورًا</span></div>
+      <div><span class="y">✓</span><span>فاضل ٤ أماكن بس</span></div>
+      <div><span class="n">✕</span><span class="bad">الأماكن المتبقية: ٤</span></div>
+      <div><span class="y">✓</span><span>هنفكّرك الساعة ٥:٣٠ ص</span></div>
+      <div><span class="n">✕</span><span class="bad">تم تفعيل التنبيه</span></div>
+    </div>
+  </div>
+
+</section>
+
+
+<section id="rate">
+  <span class="eyebrow">رأيك</span>
+  <h2 style="font-size:clamp(26px,4vw,36px);max-width:24ch">قيّم الفكرة — الرأي الوحش أنفع من الرأي المجامل</h2>
+  <p class="lede" style="margin-top:18px">التقييم مجهول ومابيتاخدش منك ولا بيانات. رأيك بيتضاف على طول للنتيجة، وهتشوف رأي الناس التانية بعد ما تبعت.</p>
+
+  <div class="ratebox rise">
+    <form id="form" novalidate>
+      <div class="q">
+        <span class="lbl">انت مين؟</span>
+        <p class="hint">عشان أعرف الرأي جاي من أنهي ناحية.</p>
+        <div class="opts" id="role">
+          <input type="radio" name="role" id="r1" value="عامل"><label for="r1">عامل</label>
+          <input type="radio" name="role" id="r2" value="مصنع"><label for="r2">صاحب أو مدير مصنع</label>
+          <input type="radio" name="role" id="r3" value="سوق"><label for="r3">شغّال في السوق ده</label>
+          <input type="radio" name="role" id="r4" value="مستثمر"><label for="r4">مستثمر أو شريك محتمل</label>
+          <input type="radio" name="role" id="r5" value="مهتم"><label for="r5">مهتم بس</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <span class="lbl">الفكرة نفسها من ٥</span>
+        <p class="hint">مش التصميم — الفكرة.</p>
+        <div class="stars" id="stars">
+          <input type="radio" name="score" id="s5" value="5"><label for="s5" title="ممتازة"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.5L12 17.5l-5.8 3.05 1.1-6.5-4.7-4.6 6.5-.95z"/></svg></label>
+          <input type="radio" name="score" id="s4" value="4"><label for="s4" title="كويسة"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.5L12 17.5l-5.8 3.05 1.1-6.5-4.7-4.6 6.5-.95z"/></svg></label>
+          <input type="radio" name="score" id="s3" value="3"><label for="s3" title="عادية"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.5L12 17.5l-5.8 3.05 1.1-6.5-4.7-4.6 6.5-.95z"/></svg></label>
+          <input type="radio" name="score" id="s2" value="2"><label for="s2" title="ضعيفة"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.5L12 17.5l-5.8 3.05 1.1-6.5-4.7-4.6 6.5-.95z"/></svg></label>
+          <input type="radio" name="score" id="s1" value="1"><label for="s1" title="مش هتنفع"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.5L12 17.5l-5.8 3.05 1.1-6.5-4.7-4.6 6.5-.95z"/></svg></label>
+        </div>
+        <div class="rate-word" id="word"></div>
+      </div>
+
+      <div class="q">
+        <span class="lbl">لو التطبيق ده موجود بكرا، هتستخدمه؟</span>
+        <p class="hint">دي أهم إجابة في الصفحة كلها.</p>
+        <div class="opts" id="use">
+          <input type="radio" name="use" id="u1" value="أكيد"><label for="u1">أكيد هستخدمه</label>
+          <input type="radio" name="use" id="u2" value="يمكن"><label for="u2">يمكن، حسب</label>
+          <input type="radio" name="use" id="u3" value="لأ"><label for="u3">لأ</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="say">أوحش حاجة في الفكرة إيه؟</label>
+        <p class="hint">اختياري — بس ده اللي بيفيد فعلًا. قول اللي مش عاجبك.</p>
+        <textarea id="say" maxlength="260" placeholder="مثلًا: المصنع مش هيدفع، أو العامل مش هيعرف يستخدمه، أو…"></textarea>
+        <div class="chars"><span id="ct">0</span>/260</div>
+      </div>
+
+      <div class="send">
+        <button type="submit" class="go" id="go">ابعت تقييمك</button>
+        <p class="fine">مفيش اسم ولا تليفون ولا إيميل بيتاخد منك. الكلام بيتحفظ في الصفحة دي بس.</p>
+      </div>
+    </form>
+
+    <div class="msg" id="msg"></div>
+
+    <div class="results" id="results"></div>
+  </div>
+
+  <div class="sharebox rise">
+    <div>
+      <h3 style="font-size:19px;margin-bottom:8px">عجبتك الفكرة؟ ابعتها لحد</h3>
+      <p style="color:var(--ink-2);font-size:14.5px;line-height:1.8">كل رأي زيادة — خصوصًا من حد شغّال في مصنع أو عارف السوق — بيخلّي الفكرة أدق.</p>
+    </div>
+    <div class="calls">
+      <a class="wa" id="shwa" href="#" target="_blank" rel="noopener">ابعتها على واتساب</a>
+      <a class="tel" id="shcp" href="#">انسخ اللينك</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <span class="eyebrow">التواصل</span>
+  <h2 style="font-size:clamp(26px,4vw,36px);max-width:22ch">لو الفكرة عجبتك — أو عندك اعتراض جامد</h2>
+
+  <div class="owner">
+    <div class="card-own">
+      <span class="k">صاحب الفكرة</span>
+      <h3>محمد فتحي عبدالصمد تركي</h3>
+      <p>مطوّر ألعاب ومصمم ثري دي. «وردية» فكرة ومنتج شغّال عليه بنفسي — من البحث للتصميم للشاشات. اللي على الصفحة دي هو العرض المختصر بس.</p>
+      <div class="calls">
+        <a class="wa" href="https://wa.me/201145827028" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.3A8.3 8.3 0 1 1 8 19.3z"/><path d="M9 9.2c.2 1.9 1.6 4.2 3.6 5.2"/></svg>
+          واتساب
+        </a>
+        <a class="tel" href="tel:+201145827028">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.2 3.5h3l1.6 4-2 1.5a11 11 0 0 0 6.2 6.2l1.5-2 4 1.6v3c0 1-.8 1.8-1.8 1.7A16.5 16.5 0 0 1 4.5 5.3c-.1-1 .7-1.8 1.7-1.8z"/></svg>
+          <span class="num">0114 582 7028</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card-own">
+      <span class="k">اللي مش في الصفحة دي</span>
+      <h3>نموذج الربح والأرقام وخطة التشغيل</h3>
+      <p>الفكرة لوحدها مش هي المشروع. اللي بيفرق هو <b>إزاي المصنع بيدفع</b>، و<b>الترتيب اللي بتدخل بيه السوق</b>، و<b>السجل اللي بيتراكم بعد سنة</b>. الحاجات دي بتتعرض لواحد لواحد، مش على لينك.</p>
+      <p style="color:var(--ink-3);font-size:13.5px">لو انت مصنع في السادات أو مستثمر — كلّمني وأوريهالك كاملة.</p>
+    </div>
+  </div>
+
+  <div class="legal">
+    <h4>ملكية الفكرة</h4>
+    <p>الفكرة والاسم «وردية» والتصميم والشاشات والنصوص في الصفحة دي كلها من إنتاج <b style="color:var(--ink)">محمد فتحي عبدالصمد تركي</b>.</p>
+    <p><b style="color:var(--ink)">الصفحة دي مفتوحة للمشاركة</b> — ابعتها لأي حد ممكن يستفيد أو يقول رأي مفيد. اللي مش مسموح بيه هو استخدام الاسم أو التصميم أو الفكرة <b style="color:var(--ink)">تجاريًا</b> من غير إذن مكتوب.</p>
+    <p>الحاجات اللي بتفرّق فعلًا — نموذج الربح، الأرقام، وترتيب دخول السوق — مش موجودة هنا عن قصد.</p>
+    <div class="sig">
+      وردية · مدينة السادات · جمهورية مصر العربية<br>
+      © ٢٠٢٦ محمد فتحي عبدالصمد تركي — كل الحقوق محفوظة
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var q = document.getElementById('qr');
+  if(!q) return;
+  var N = 21;
+  function finder(x,y){
+    function box(bx,by){ return x>=bx && x<bx+7 && y>=by && y<by+7; }
+    return box(0,0) || box(14,0) || box(0,14);
+  }
+  var frag = document.createDocumentFragment();
+  for(var y=0;y<N;y++){
+    for(var x=0;x<N;x++){
+      var on;
+      if(finder(x,y)){
+        var bx = x<7?0:14, by = y<7?0:14;
+        var lx = x-bx, ly = y-by;
+        on = (lx===0||lx===6||ly===0||ly===6) || (lx>=2&&lx<=4&&ly>=2&&ly<=4);
+      } else {
+        on = ((x*7 + y*13 + x*y*3 + ((x+y)%4)*5) % 5) < 2;
+      }
+      var c = document.createElement('i');
+      if(!on) c.style.background = 'transparent';
+      frag.appendChild(c);
+    }
+  }
+  q.appendChild(frag);
+})();
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* أكواد QR شكلية — للعرض بس، مش أكواد حقيقية */
+  function fillQR(el, n, seed){
+    if(!el) return;
+    var frag = document.createDocumentFragment();
+    for(var y=0;y<n;y++){
+      for(var x=0;x<n;x++){
+        var on = ((x*7 + y*13 + x*y*3 + seed*11 + ((x+y)%4)*5) % 5) < 2;
+        var c = document.createElement('i');
+        if(!on) c.style.background = 'transparent';
+        frag.appendChild(c);
+      }
+    }
+    el.appendChild(frag);
+  }
+  fillQR(document.getElementById('qbadge'), 5, 3);
+  fillQR(document.getElementById('qgate'), 11, 7);
+
+  /* شريط التقدّم + تعليم القسم الحالي */
+  var prog  = document.getElementById('prog');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nv-links a'));
+  var marks = links.map(function(a){
+    return { a: a, el: document.querySelector(a.getAttribute('href')) };
+  }).filter(function(m){ return m.el; });
+
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      ticking = false;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      if(prog) prog.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+
+      var line = window.scrollY + 120, cur = null;
+      for(var i=0;i<marks.length;i++){
+        if(marks[i].el.offsetTop <= line) cur = marks[i];
+      }
+      for(var j=0;j<marks.length;j++){
+        marks[j].a.classList.toggle('on', marks[j] === cur);
+      }
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ظهور بالتمرير */
+  var rises = document.querySelectorAll('.rise');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce || !('IntersectionObserver' in window)){
+    Array.prototype.forEach.call(rises, function(el){ el.classList.add('seen'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('seen'); io.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+    Array.prototype.forEach.call(rises, function(el){ io.observe(el); });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var P = '<svg viewBox="0 0 24 24" aria-hidden="true">';
+  var ICONS = {
+    shift : P+'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.2V12l3.2 2"/></svg>',
+    money : P+'<rect x="3" y="6.5" width="18" height="11" rx="2.5"/><circle cx="12" cy="12" r="2.7"/><path d="M6.6 12h.01M17.4 12h.01"/></svg>',
+    ticket: P+'<rect x="4" y="4" width="6" height="6" rx="1.2"/><rect x="14" y="4" width="6" height="6" rx="1.2"/><rect x="4" y="14" width="6" height="6" rx="1.2"/><path d="M14 14h3v3M20 14v.01M20 17.5v2.5h-3M14 20v.01"/></svg>',
+    log   : P+'<rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 3h6v3H9z"/><path d="M8.6 11h6.8M8.6 15h4.4"/></svg>',
+    bus   : P+'<rect x="4" y="4" width="16" height="12.5" rx="3"/><path d="M4 10h16M9 4v6M15 4v6"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/></svg>',
+    box   : P+'<path d="M12 3.2 20.5 7v10L12 20.8 3.5 17V7z"/><path d="M3.5 7 12 10.8 20.5 7M12 10.8V20.8"/></svg>',
+    gear  : P+'<circle cx="12" cy="12" r="3.1"/><path d="M12 2.8v2.4M12 18.8v2.4M21.2 12h-2.4M5.2 12H2.8M18.5 5.5l-1.7 1.7M7.2 16.8l-1.7 1.7M18.5 18.5l-1.7-1.7M7.2 7.2 5.5 5.5"/></svg>',
+    meal  : P+'<path d="M6 3.2v7.2a2.4 2.4 0 0 0 4.8 0V3.2M8.4 10.6V20.8"/><path d="M17.4 3.2c-1.6 1-2.4 2.8-2.4 5.2s.8 3.6 2.4 3.6V20.8"/></svg>',
+    shield: P+'<path d="M12 3.2 19 6v5.6c0 4-3 7.4-7 9.2-4-1.8-7-5.2-7-9.2V6z"/><path d="M9.2 12.2l2 2 3.6-3.8"/></svg>',
+    worker: P+'<path d="M4.5 14.5a7.5 7.5 0 0 1 15 0"/><path d="M3 14.5h18"/><path d="M12 7V4.2"/><path d="M9.4 7.8A7.4 7.4 0 0 1 12 7c.9 0 1.8.15 2.6.45"/></svg>',
+    phone : P+'<path d="M6.2 3.5h3l1.6 4-2 1.5a11 11 0 0 0 6.2 6.2l1.5-2 4 1.6v3c0 1-.8 1.8-1.8 1.7A16.5 16.5 0 0 1 4.5 5.3c-.1-1 .7-1.8 1.7-1.8z"/></svg>',
+    sound : P+'<path d="M4 9.5h3.5L12 5.5v13L7.5 14.5H4z"/><path d="M15.4 9.3a4 4 0 0 1 0 5.4"/><path d="M18 6.9a7.5 7.5 0 0 1 0 10.2"/></svg>'
+  };
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-ic]'), function(el){
+    var svg = ICONS[el.getAttribute('data-ic')];
+    if(svg) el.innerHTML = svg;
+  });
+
+  /* شريط الحالة: شبكة · واي فاي · بطارية */
+  Array.prototype.forEach.call(document.querySelectorAll('.rgt[data-bat]'), function(el){
+    var pct = parseInt(el.getAttribute('data-bat'), 10);
+    if(isNaN(pct)) pct = 80;
+    var fill = Math.max(1.5, (pct / 100) * 13);
+    el.innerHTML =
+      '<svg viewBox="0 0 18 12" width="14" height="9" aria-hidden="true">' +
+        '<rect x="0" y="8.4" width="3" height="3.6" rx="1"/>' +
+        '<rect x="4.8" y="5.6" width="3" height="6.4" rx="1"/>' +
+        '<rect x="9.6" y="2.8" width="3" height="9.2" rx="1"/>' +
+        '<rect x="14.4" y="0" width="3" height="12" rx="1" opacity=".38"/>' +
+      '</svg>' +
+      '<svg viewBox="0 0 16 12" width="12" height="9" aria-hidden="true">' +
+        '<path d="M8 11.3 1.1 4.3a9.7 9.7 0 0 1 13.8 0z"/>' +
+      '</svg>' +
+      '<b>' + pct + '</b>' +
+      '<svg viewBox="0 0 25 12" width="18" height="9" aria-hidden="true">' +
+        '<rect x=".7" y=".7" width="20.6" height="10.6" rx="3.2" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".45"/>' +
+        '<rect x="2.5" y="2.5" width="' + fill.toFixed(1) + '" height="7" rx="1.6"/>' +
+        '<path d="M23 4.3v3.4a2.3 2.3 0 0 0 0-3.4z" opacity=".45"/>' +
+      '</svg>';
+  });
+
+  /* كود التذكرة في البنر */
+  var hq = document.getElementById('qhero');
+  if(hq){
+    var N = 21, frag = document.createDocumentFragment();
+    for(var y=0;y<N;y++){
+      for(var x=0;x<N;x++){
+        var bx = x<7?0:14, by = y<7?0:14;
+        var isFinder = (x<7&&y<7)||(x>=14&&y<7)||(x<7&&y>=14);
+        var on;
+        if(isFinder){
+          var lx = x-bx, ly = y-by;
+          on = (lx===0||lx===6||ly===0||ly===6) || (lx>=2&&lx<=4&&ly>=2&&ly<=4);
+        } else {
+          on = ((x*7 + y*13 + x*y*3 + ((x+y)%4)*5) % 5) < 2;
+        }
+        var c = document.createElement('i');
+        if(!on) c.style.background = 'transparent';
+        frag.appendChild(c);
+      }
+    }
+    hq.appendChild(frag);
+  }
+})();
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  var FONTS = "https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap";
+  var WA = "201145827028";
+  var WEB = true;    /* true = نسخة الويب العادية (من غير منظومة claude) */
+  var CLOSE = "<" + "/script>";
+
+  /* ─────────── الحالة ─────────── */
+  var state = { v: [] };
+  try {
+    var raw = document.getElementById("state").textContent;
+    var parsed = JSON.parse(raw);
+    if (parsed && Array.isArray(parsed.v)) state = parsed;
+  } catch (e) {}
+
+  /* ─────────── تركيب الصفحة ─────────── */
+  var app = document;
+  /* الصفحة مبنية في الـ HTML نفسه */
+
+  function $(id) { return document.getElementById(id); }
+  function esc(t) {
+    return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function ar(n) {
+    return String(n).replace(/[0-9]/g, function (d) { return "٠١٢٣٤٥٦٧٨٩"[+d]; });
+  }
+
+  /* ─────────── الفورم ─────────── */
+  var form = $("form"), go = $("go"), msg = $("msg"), results = $("results"),
+      word = $("word"), say = $("say"), ct = $("ct");
+
+  var WORDS = { 1: "مش هتنفع", 2: "ضعيفة", 3: "عادية", 4: "كويسة", 5: "ممتازة" };
+  form.addEventListener("change", function (e) {
+    if (e.target.name === "score") word.textContent = WORDS[e.target.value] || "";
+  });
+  say.addEventListener("input", function () { ct.textContent = say.value.length; });
+
+  if (WEB) {
+    go.textContent = "ابعت تقييمك على واتساب";
+    var fine = app.querySelector(".send .fine");
+    if (fine) fine.textContent = "مفيش اسم ولا إيميل بيتاخد منك. أول ما تدوس، هيفتح واتساب برسالة جاهزة فيها إجاباتك — انت بس تبعت.";
+    var lede = document.querySelector("#rate .lede");
+    if (lede) lede.textContent = "قول رأيك بصراحة — الرأي الوحش أنفع. لما تخلّص، الرسالة بتتجهّز لك على واتساب وانت بتبعتها بضغطة واحدة.";
+    var send = app.querySelector(".send");
+    if (send) {
+      var box = document.createElement("div");
+      box.className = "q";
+      box.innerHTML =
+        '<label for="nm">اسمك والجهة — اختياري</label>' +
+        '<p class="hint">عشان أعرف أرد عليك وأعرف الرأي جاي منين. سيبهم فاضيين لو مش عايز.</p>' +
+        '<div class="who2">' +
+          '<input type="text" id="nm" maxlength="60" placeholder="الاسم">' +
+          '<input type="text" id="org" maxlength="60" placeholder="المصنع أو الجهة">' +
+        '</div>';
+      send.parentNode.insertBefore(box, send);
+    }
+    var note = document.querySelector(".hero-note");
+    if (note) note.textContent = "تطبيق بيوصّل ورديات مصانع مدينة السادات للعامل مباشرة. الأجر كامل من غير خصم مقاول، والرواح والرجوع محسوبين. تحت هتلاقي صندوق تقييم — قولّي رأيك بصراحة.";
+  }
+
+  function picked(name) {
+    var el = form.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : "";
+  }
+
+  function show(kind, html) {
+    msg.className = "msg on " + kind;
+    msg.innerHTML = html;
+  }
+
+  /* ─────────── النتايج ─────────── */
+  function render(votes, mine, local) {
+    if (WEB) {
+      results.innerHTML =
+        '<div class="res-top">' +
+          '<div class="res-score"><div class="n">' + ar(mine.s) + '</div>' +
+          '<div class="of">تقييمك من ٥</div></div>' +
+          '<div class="res-bars" style="gap:10px">' +
+            '<div class="res-cell"><div class="l">انت</div><div class="v" style="font-size:19px">' + esc(mine.r) + '</div></div>' +
+            '<div class="res-cell"><div class="l">هتستخدمه؟</div><div class="v" style="font-size:19px">' + esc(mine.u) + '</div></div>' +
+          '</div>' +
+        '</div>' +
+        (mine.c ? '<div class="say-item"><div class="who"><b>رأيك</b></div><p>' + esc(mine.c) + '</p></div>' : '');
+      form.style.display = "none";
+      results.classList.add("on");
+      return;
+    }
+    var n = votes.length;
+    var sum = 0, dist = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }, sure = 0, roles = {};
+    votes.forEach(function (v) {
+      var s = +v.s || 0;
+      sum += s;
+      if (dist[s] !== undefined) dist[s]++;
+      if (v.u === "أكيد") sure++;
+      if (v.r) roles[v.r] = (roles[v.r] || 0) + 1;
+    });
+    var avg = n ? (sum / n) : 0;
+    var top = Object.keys(roles).sort(function (a, b) { return roles[b] - roles[a]; })[0];
+
+    var bars = "";
+    for (var s = 5; s >= 1; s--) {
+      var pc = n ? Math.round((dist[s] / n) * 100) : 0;
+      bars += '<div class="bar"><span class="k">' + ar(s) + ' ★</span>' +
+              '<span class="t"><i style="width:' + pc + '%"></i></span>' +
+              '<span class="c">' + ar(dist[s]) + '</span></div>';
+    }
+
+    var says = votes.filter(function (v) { return v.c; }).slice(-10).reverse();
+    var saysHtml = says.length
+      ? says.map(function (v) {
+          return '<div class="say-item"><div class="who"><b>' + esc(v.r || "مجهول") + '</b>' +
+                 '<span>' + ar(v.s) + ' من ٥</span></div><p>' + esc(v.c) + '</p></div>';
+        }).join("")
+      : '<div class="empty">لسه محدش كتب رأيه.</div>';
+
+    results.innerHTML =
+      '<div class="res-top">' +
+        '<div class="res-score"><div class="n">' + ar(avg.toFixed(1)) + '</div>' +
+        '<div class="of">متوسط التقييم من ٥</div></div>' +
+        '<div class="res-bars">' + bars + '</div>' +
+      '</div>' +
+      '<div class="res-grid">' +
+        '<div class="res-cell"><div class="l">عدد التقييمات</div><div class="v">' + ar(n) + '</div>' +
+          '<div class="s">' + (local ? "شامل تقييمك (محلي)" : "شامل تقييمك") + '</div></div>' +
+        '<div class="res-cell"><div class="l">قالوا «أكيد هستخدمه»</div>' +
+          '<div class="v" style="color:var(--go)">' + ar(n ? Math.round((sure / n) * 100) : 0) + '٪</div>' +
+          '<div class="s">' + ar(sure) + ' من ' + ar(n) + '</div></div>' +
+        '<div class="res-cell"><div class="l">أكتر فئة قيّمت</div>' +
+          '<div class="v" style="font-size:19px">' + esc(top || "—") + '</div>' +
+          '<div class="s">' + (top ? ar(roles[top]) + " تقييم" : "") + '</div></div>' +
+      '</div>' +
+      '<h3 style="font-size:18px;margin-top:30px">اللي الناس قالته</h3>' +
+      '<div class="says-list">' + saysHtml + '</div>';
+
+    form.style.display = "none";
+    results.classList.add("on");
+  }
+
+  function waLink(v) {
+    var nm = $("nm"), org = $("org");
+    var who = "";
+    if (nm && nm.value.trim()) who += "\nالاسم: " + nm.value.trim();
+    if (org && org.value.trim()) who += "\nالجهة: " + org.value.trim();
+    var t = "تقييمي لفكرة «وردية»:" + who + "\n" +
+            "الصفة: " + v.r + "\n" +
+            "التقييم: " + ar(v.s) + " من ٥\n" +
+            "هستخدمه؟ " + v.u +
+            (v.c ? "\nرأيي: " + v.c : "");
+    return "https://wa.me/" + WA + "?text=" + encodeURIComponent(t);
+  }
+
+  function readOnly(v) {
+    render(state.v.concat([v]), v, true);
+    if (WEB) {
+      show("warn",
+        "<b>شكرًا.</b> فتحتلك واتساب برسالة جاهزة فيها إجاباتك — ابعتها عشان رأيك يوصل. " +
+        'لو مافتحش: <a href="' + waLink(v) + '" target="_blank" rel="noopener">اضغط هنا</a>.');
+    } else {
+      show("warn",
+        "<b>تقييمك اتحسب هنا بس ماتسجّلش.</b> اللينك ده مفتوح للقراية فقط، فالصفحة مش مسموح ليها تحفظ نسخة جديدة. " +
+        'لو تحب رأيك يوصل لمحمد فعلًا: <a href="' + waLink(v) + '" target="_blank" rel="noopener">ابعته على واتساب</a>.');
+    }
+  }
+
+  /* لو الشخص قيّم قبل كده من نفس المتصفح */
+  var already = null;
+  try { already = JSON.parse(localStorage.getItem("wardeya-rated") || "null"); } catch (e) {}
+  if (already) {
+    render(state.v, already, false);
+    show("warn", "انت قيّمت الفكرة قبل كده من المتصفح ده — شكرًا. دي النتيجة لحد دلوقتي.");
+  }
+
+  /* لو فيه تقييم اتقطع في نصّه */
+  var pending = null;
+  try { pending = JSON.parse(sessionStorage.getItem("wardeya-pending") || "null"); } catch (e) {}
+  if (pending && !already) {
+    var inState = state.v.some(function (v) { return v.t === pending.t; });
+    sessionStorage.removeItem("wardeya-pending");
+    if (inState) {
+      try { localStorage.setItem("wardeya-rated", JSON.stringify(pending)); } catch (e) {}
+      render(state.v, pending, false);
+    } else {
+      show("warn", "حد تاني قيّم في نفس اللحظة فتقييمك ماوصلش. ابعته تاني — الفورم لسه فيه اختياراتك.");
+      var rr = form.querySelector('input[name="role"][value="' + pending.r + '"]');
+      var ss = form.querySelector('input[name="score"][value="' + pending.s + '"]');
+      var uu = form.querySelector('input[name="use"][value="' + pending.u + '"]');
+      if (rr) rr.checked = true;
+      if (ss) { ss.checked = true; word.textContent = WORDS[pending.s] || ""; }
+      if (uu) uu.checked = true;
+      if (pending.c) { say.value = pending.c; ct.textContent = pending.c.length; }
+    }
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var role = picked("role"), score = picked("score"), use = picked("use");
+    if (!role || !score || !use) {
+      show("bad", "ناقص حاجة: لازم تختار انت مين، وتقييمك، وهتستخدمه ولا لأ.");
+      return;
+    }
+    var vote = {
+      r: role,
+      s: +score,
+      u: use,
+      c: say.value.trim().slice(0, 260),
+      t: Date.now()
+    };
+
+    go.disabled = true;
+    go.textContent = "بيتسجّل…";
+    msg.className = "msg";
+
+    try { sessionStorage.setItem("wardeya-pending", JSON.stringify(vote)); } catch (err) {}
+    try { localStorage.setItem("wardeya-rated", JSON.stringify(vote)); } catch (err) {}
+
+    if (WEB) {
+      go.disabled = false;
+      go.textContent = "ابعت تقييمك على واتساب";
+      try { window.open(waLink(vote), "_blank", "noopener"); } catch (err) {}
+      readOnly(vote);
+      return;
+    }
+
+    var can = (typeof claude !== "undefined") && claude && typeof claude.use === "function";
+    if (!can) { go.disabled = false; go.textContent = "ابعت تقييمك"; readOnly(vote); return; }
+
+    claude.use("artifact").then(function (art) {
+      if (!art) { go.disabled = false; go.textContent = "ابعت تقييمك"; readOnly(vote); return; }
+      return art.publish(DOC({ v: state.v.concat([vote]) }));
+    }).catch(function (err) {
+      go.disabled = false;
+      go.textContent = "ابعت تقييمك";
+      var code = err && err.code;
+      if (code === "conflict") {
+        show("warn", "حد قيّم في نفس اللحظة — الصفحة بتتحدّث. تقييمك محفوظ، اضغط تاني بعد ثانية.");
+        return;
+      }
+      if (code === "not_writer" || code === "not_granted" || code === "not_declared" ||
+          code === "capability_disabled" || code === "capability_removed" || code === "consent_required") {
+        readOnly(vote);
+        return;
+      }
+      if (code === "rate_limited") {
+        show("warn", "الصفحة بتتحفظ كتير دلوقتي. استنى شوية وجرّب تاني.");
+        return;
+      }
+      show("bad",
+        "حصلت مشكلة في الحفظ. " +
+        'رأيك مهم — <a href="' + waLink(vote) + '" target="_blank" rel="noopener">ابعته على واتساب</a>.');
+    });
+  });
+})();
+(function () {
+  "use strict";
+  var url = location.href.split("#")[0];
+  var txt = "شوف الفكرة دي — «وردية»: تطبيق بيوصّل ورديات مصانع مدينة السادات للعامل مباشرة، من غير سمسار. قولّي رأيك فيها:\n" + url;
+  var wa = document.getElementById("shwa");
+  if (wa) wa.href = "https://wa.me/?text=" + encodeURIComponent(txt);
+  var cp = document.getElementById("shcp");
+  if (cp) cp.addEventListener("click", function (e) {
+    e.preventDefault();
+    var old = cp.textContent;
+    var ok = function () { cp.textContent = "اتنسخ ✓"; setTimeout(function () { cp.textContent = old; }, 1800); };
+    if (navigator.share) { navigator.share({ title: "وردية", text: "شوف الفكرة دي", url: url }).catch(function () {}); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(url).then(ok).catch(function () { window.prompt("انسخ اللينك:", url); }); return; }
+    window.prompt("انسخ اللينك:", url);
+  });
+})();
+</script>
+
+</body>
+</html>

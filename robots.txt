@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elturky38.github.io/wardeya/sitemap.xml
