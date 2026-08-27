@@ -1082,13 +1082,13 @@ section[id],footer[id],header[id]{scroll-margin-top:76px}
   .lines-m{
     display:block;position:absolute;z-index:0;pointer-events:none;
     left:0;right:0;top:0;height:330px;overflow:hidden;margin:0;
-    /* بيخفت قبل ما يوصل للفقرات خالص */
-    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%);
-    mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%);
+    /* أقوى ناحية الشمال الفاضية، وبيسيب البادج واللوجو والفقرات في حالهم */
+    -webkit-mask-image:radial-gradient(150% 130% at 0% 28%,#000 0%,#000 34%,rgba(0,0,0,.30) 60%,transparent 84%);
+    mask-image:radial-gradient(150% 130% at 0% 28%,#000 0%,#000 34%,rgba(0,0,0,.30) 60%,transparent 84%);
   }
   .lines-m svg{
-    position:absolute;left:50%;top:52px;transform:translateX(-50%);
-    width:158%;height:auto;overflow:visible;opacity:.9;
+    position:absolute;left:50%;top:44px;transform:translateX(-50%);
+    width:158%;height:auto;overflow:visible;opacity:.95;
   }
 }
 
