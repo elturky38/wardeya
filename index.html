@@ -844,101 +844,49 @@ section[id],footer[id],header[id]{scroll-margin-top:76px}
   color:var(--ink-3);font-size:13.5px;
 }
 
-/* ─────────── وصول التلفونات: تلات لحظات بترتيب اليوم ─────────── */
-.rig .dev .phone{overflow:hidden}
+/* ─────────── لقطة البنر: كلام + تلفون واحد ─────────── */
+.hero-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) 340px;
+  gap:clamp(28px,5vw,64px);align-items:center;
+}
+.hero-shot{position:relative;justify-self:center}
+.hero-shot::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(620px,150%);height:min(620px,115%);border-radius:50%;
+  background:radial-gradient(closest-side ellipse at 50% 50%,rgba(255,122,26,.26),transparent 100%);
+}
+.hero-shot .phone{position:relative;z-index:1;overflow:hidden;margin:0}
+.shot-cap{
+  position:relative;z-index:1;
+  margin:20px auto 0;text-align:center;
+  color:var(--ink-3);font-size:12px;font-family:var(--mono);
+}
 
 @media (prefers-reduced-motion:no-preference){
-  /* الترتيب زمني مش مكاني: الحجز بالليل → التذكرة → الأتوبيس الصبح */
-  .rig .dev{opacity:0}
-  .rig .dev.m{animation:arriveM 1.15s cubic-bezier(.16,.84,.28,1.02) .15s forwards,
-              driftM 11s ease-in-out 2s infinite}
-  .rig .dev.tilt-l{animation:arriveL 1.15s cubic-bezier(.16,.84,.28,1.02) .5s forwards,
-              driftL 13s ease-in-out 2.6s infinite}
-  .rig .dev.tilt-r{animation:arriveR 1.15s cubic-bezier(.16,.84,.28,1.02) .85s forwards,
-              driftR 15s ease-in-out 3.2s infinite}
+  .hero-shot .phone{opacity:0;animation:arriveShot 1.15s cubic-bezier(.16,.84,.28,1.02) .15s forwards,
+                              driftShot 11s ease-in-out 2s infinite}
+  @keyframes arriveShot{from{opacity:0;transform:translateY(74px) scale(.95)}to{opacity:1;transform:none}}
+  @keyframes driftShot{0%,100%{transform:none}50%{transform:translateY(-6px)}}
 
-  @keyframes arriveM{
-    from{opacity:0;transform:translateY(78px) scale(.94)}
-    to{opacity:1;transform:none}
-  }
-  @keyframes arriveL{
-    from{opacity:0;transform:translate(-46px,74px) rotate(-13deg)}
-    to{opacity:1;transform:rotate(-4.5deg) translateY(28px)}
-  }
-  @keyframes arriveR{
-    from{opacity:0;transform:translate(46px,74px) rotate(13deg)}
-    to{opacity:1;transform:rotate(4.5deg) translateY(28px)}
-  }
-
-  /* عوم بطيء جدًا وبمدد مختلفة — مايبانش إنه لوب */
-  @keyframes driftM{0%,100%{transform:none}50%{transform:translateY(-5px)}}
-  @keyframes driftL{0%,100%{transform:rotate(-4.5deg) translateY(28px)}50%{transform:rotate(-4.5deg) translateY(23px)}}
-  @keyframes driftR{0%,100%{transform:rotate(4.5deg) translateY(28px)}50%{transform:rotate(4.5deg) translateY(22px)}}
-
-  /* لمعة بتعدّي على الشاشة أول ما تنزل — زي ضوء بيمر على موبايل في إيد حد */
-  .rig .dev .phone::before{
+  /* لمعة ضوء بتعدّي على الشاشة أول ما تنزل */
+  .hero-shot .phone::before{
     content:"";position:absolute;inset:0;z-index:6;pointer-events:none;border-radius:38px;
     background:linear-gradient(104deg,transparent 34%,rgba(255,255,255,.17) 46%,rgba(255,122,26,.12) 53%,transparent 68%);
     opacity:0;transform:translateX(-130%);
-    animation:sweep 1.25s ease-out forwards;
+    animation:sweep 1.3s ease-out .8s forwards;
   }
-  .rig .dev.m .phone::before{animation-delay:.75s}
-  .rig .dev.tilt-l .phone::before{animation-delay:1.1s}
-  .rig .dev.tilt-r .phone::before{animation-delay:1.45s}
-  @keyframes sweep{
-    0%{opacity:0;transform:translateX(-130%)}
-    18%{opacity:1}
-    100%{opacity:0;transform:translateX(130%)}
-  }
+  @keyframes sweep{0%{opacity:0;transform:translateX(-130%)}18%{opacity:1}100%{opacity:0;transform:translateX(130%)}}
 
-  .rig-cap{opacity:0;animation:capIn .9s ease 1.7s forwards}
+  .shot-cap{opacity:0;animation:capIn .9s ease 1.25s forwards}
   @keyframes capIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 }
 
 @media (max-width:980px){
-  .dev.s{--k:.44}
-  .dev.m{--k:.58}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
 }
-@media (max-width:660px){
-  .hero{padding:56px 0 60px}
-
-  /* على الموبايل: صف بيتسحب بالصباع، تلفون كامل في النص كل مرة */
-  .rig{
-    display:flex;align-items:flex-start;justify-content:flex-start;
-    gap:16px;margin-top:34px;
-    margin-inline:-24px;                     /* ياخد عرض الشاشة كله بره الـ wrap */
-    padding:4px 0 16px;
-    padding-inline:calc(50vw - 106px);       /* أول وآخر تلفون يقفوا في نص الشاشة */
-    overflow-x:auto;overflow-y:hidden;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-  }
-  .rig::-webkit-scrollbar{display:none}
-  .hero .rig::before,.hero .rig::after{content:none}
-
-  /* ترتيب اليوم: الورديات → التذكرة → الأتوبيس */
-  .rig .dev{flex:none;scroll-snap-align:center;--k:.62}
-  .rig .dev.m{order:1}
-  .rig .dev.tilt-l{order:2}
-  .rig .dev.tilt-r{order:3}
-  .rig .dev.tilt-r,.rig .dev.tilt-l{transform:none}
-  .dev.s .phone::after{content:none}         /* مفيش تظليل — كلهم في المقدّمة دلوقتي */
-
-  .rig-cap{margin-top:8px;font-size:12.5px;max-width:32ch;margin-inline:auto}
-  .rig-cap .swipe{display:block;margin-top:8px;color:var(--hi);font-size:12px;font-family:var(--mono)}
-}
-@media (prefers-reduced-motion:no-preference) and (max-width:660px){
-  @keyframes arriveL{
-    from{opacity:0;transform:translateY(56px) scale(.95)}
-    to{opacity:1;transform:none}
-  }
-  @keyframes arriveR{
-    from{opacity:0;transform:translateY(56px) scale(.95)}
-    to{opacity:1;transform:none}
-  }
-  @keyframes driftL{0%,100%{transform:none}50%{transform:translateY(-5px)}}
-  @keyframes driftR{0%,100%{transform:none}50%{transform:translateY(-5px)}}
+@media (max-width:420px){
+  .phone{width:min(320px,calc(100vw - 52px))}
 }
 
 /* ═════════════════════════════════════════════════════
@@ -1444,7 +1392,9 @@ button.go:focus-visible{outline:2px solid #fff;outline-offset:3px}
   </div>
 
   <div class="wrap hero-inner">
-    <div class="hero-pill"><i></i>فكرة بشتغل عليها · مدينة السادات · قولّي رأيك</div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-pill"><i></i>فكرة بشتغل عليها · مدينة السادات · قولّي رأيك</div>
     <div class="lockup">
       <div class="mark" aria-hidden="true">
         <svg viewBox="0 0 40 40" fill="none">
@@ -1457,89 +1407,10 @@ button.go:focus-visible{outline:2px solid #fff;outline-offset:3px}
         <p class="tag">شغلك ورجوعك — من غير سمسار</p>
       </div>
     </div>
-
-    <p class="thesis">العامل بياخد <b>أجره كامل</b>، والمصنع بيملا الوردية في <b>ساعات</b> بدل أيام.</p>
+        <p class="thesis">العامل بياخد <b>أجره كامل</b>، والمصنع بيملا الوردية في <b>ساعات</b> بدل أيام.</p>
     <p class="hero-note">تطبيق بيوصّل ورديات مصانع مدينة السادات للعامل مباشرة. الأجر كامل من غير خصم مقاول، والرواح والرجوع محسوبين.</p>
-
-    <div class="lines lines-m" aria-hidden="true">
-      <svg viewBox="0 0 400 122" preserveAspectRatio="xMidYMid meet">
-        <path class="ln-dim" d="M-20 26 H86 L124 4 H420"/>
-        <path class="glow" d="M-20 104 H108 L158 54 H276 L318 22 H420"/>
-        <path class="live" id="route-m" d="M-20 104 H108 L158 54 H276 L318 22 H420"/>
-        <use class="pulse" href="#route-m"/>
-        <circle class="halo" cx="108" cy="104" r="15"/>
-        <circle class="nd-hot" cx="108" cy="104" r="6"/>
-        <circle class="halo" cx="276" cy="54" r="15"/>
-        <circle class="nd-hot" cx="276" cy="54" r="6"/>
-        <circle class="nd" cx="158" cy="54" r="4.5"/>
-      </svg>
-    </div>
-
-    <div class="rig">
-      <div class="chipg a">
-        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16.5 9.5 11l4 4L20 8"/><path d="M15 8h5v5"/></svg></span>
-        <div>
-          <div class="big">٣ ساعات</div>
-          <div class="sub">لملء وردية كانت بتاخد ٣ أيام</div>
-        </div>
       </div>
-      <div class="chipg b">
-        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.5" width="18" height="11" rx="2.5"/><circle cx="12" cy="12" r="2.7"/><path d="M4.5 4 20 20"/></svg></span>
-        <div>
-          <div class="big">٠ جنيه</div>
-          <div class="sub">اللي العامل بيدفعه. المصنع بيدفع.</div>
-        </div>
-      </div>
-      <!-- تتبّع الأتوبيس -->
-      <div class="dev s tilt-r">
-        <div class="phone">
-          <div class="pscreen">
-            <div class="statusbar"><span>5:53 AM</span><span class="rgt" data-bat="88"></span></div>
-            <div class="pbody">
-              <div class="count">
-                <div class="a">الأتوبيس في الطريق</div>
-                <div class="b">٧ دقايق</div>
-                <div class="c">نقطة الركوب</div>
-              </div>
-              <div style="flex:1;position:relative;background:var(--paper-2);overflow:hidden">
-                <div style="position:absolute;left:-10px;top:46px;width:340px;height:9px;background:#DBE0E7;border-radius:2px"></div>
-                <div style="position:absolute;left:-10px;top:130px;width:340px;height:6px;background:#DBE0E7;border-radius:2px"></div>
-                <div style="position:absolute;left:-10px;top:214px;width:340px;height:6px;background:#DBE0E7;border-radius:2px"></div>
-                <div style="position:absolute;left:56px;top:-10px;width:7px;height:340px;background:#DBE0E7;border-radius:2px"></div>
-                <div style="position:absolute;left:176px;top:-10px;width:6px;height:340px;background:#DBE0E7;border-radius:2px"></div>
-                <div style="position:absolute;left:78px;top:70px;width:78px;height:38px;background:#E7EBF0;border-radius:5px"></div>
-                <div style="position:absolute;left:198px;top:150px;width:66px;height:46px;background:#E7EBF0;border-radius:5px"></div>
-                <div style="position:absolute;left:82px;top:160px;width:70px;height:34px;background:#E7EBF0;border-radius:5px"></div>
-                <div style="position:absolute;left:204px;top:64px;width:70px;height:46px;background:#E7EBF0;border-radius:5px"></div>
-                <svg viewBox="0 0 288 280" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%" aria-hidden="true">
-                  <path d="M264 248 L264 133 L181 133 L181 50 L62 50" fill="none" stroke="#22C55E" stroke-width="5" stroke-linecap="round"/>
-                </svg>
-                <div style="position:absolute;left:42px;top:32px;width:44px;height:44px;border-radius:999px;background:rgba(255,122,26,.16)"></div>
-                <div style="position:absolute;left:54px;top:44px;width:20px;height:20px;border-radius:999px;background:#FF7A1A;border:4px solid #fff"></div>
-                <div style="position:absolute;left:160px;top:115px;width:36px;height:36px;border-radius:999px;background:#22C55E;border:4px solid #fff;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.22)">
-                  <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" aria-hidden="true"><rect x="4" y="4" width="16" height="12.5" rx="3"/><path d="M4 10h16M9 4v6M15 4v6"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/></svg>
-                </div>
-              </div>
-              <div style="background:#fff;border-top:1px solid var(--paper-line);padding:13px 16px 22px">
-                <div style="display:flex;align-items:center;gap:9px;margin-bottom:11px">
-                  <span class="btn" style="background:#E4F6EC;color:#12A150;padding:8px 13px;display:flex;align-items:center;gap:6px">
-                    <svg viewBox="0 0 24 24" style="width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round" aria-hidden="true"><path d="M6.2 3.5h3l1.6 4-2 1.5a11 11 0 0 0 6.2 6.2l1.5-2 4 1.6v3c0 1-.8 1.8-1.8 1.7A16.5 16.5 0 0 1 4.5 5.3c-.1-1 .7-1.8 1.7-1.8z"/></svg>
-                    اتصل
-                  </span>
-                  <div style="flex:1">
-                    <div style="font-size:13px;font-weight:900">السواق — أتوبيس ٣</div>
-                    <div style="font-size:10px;color:var(--paper-ink-3)">خط المنطقة الأولى</div>
-                  </div>
-                </div>
-                <div class="btn wide dark">افتح التذكرة</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- الورديات -->
-      <div class="dev m">
+      <div class="hero-shot">
         <div class="phone">
           <div class="pscreen">
             <div class="statusbar"><span>8:40 PM</span><span class="rgt" data-bat="64"></span></div>
@@ -1587,43 +1458,30 @@ button.go:focus-visible{outline:2px solid #fff;outline-offset:3px}
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- التذكرة -->
-      <div class="dev s tilt-l">
-        <div class="phone">
-          <div class="pscreen dark">
-            <div class="statusbar"><span>8:43 PM</span><span class="rgt" data-bat="63"></span></div>
-            <div class="pbody" style="padding:14px 14px">
-              <div class="okpill"><span>الحجز اتأكد</span><span>✓</span></div>
-              <div class="ticket">
-                <div style="text-align:center;font-size:11.5px;color:var(--paper-ink-2);font-weight:600">تذكرة الوردية</div>
-                <div class="qr" id="qhero" aria-label="كود الركوب"></div>
-                <div class="codebox"><div class="l">رقم التذكرة</div><div class="v">٤٩٢٧</div></div>
-                <div class="cut"></div>
-                <div class="trow"><span class="k">المصنع</span><span class="v">مصنع تعبئة وتغليف</span></div>
-                <div class="trow"><span class="k">الميعاد</span><span class="v">٦:٣٠ ص</span></div>
-                <div class="trow" style="margin-bottom:0"><span class="k">الأجر</span><span class="v" style="color:#12A150">٢٥٠ جنيه</span></div>
-              </div>
-              <div class="listenbtn">
-                <span>اسمع التفاصيل بالصوت</span>
-                <svg viewBox="0 0 24 24" style="width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13L7.5 14.5H4z"/><path d="M15.4 9.3a4 4 0 0 1 0 5.4"/><path d="M18 6.9a7.5 7.5 0 0 1 0 10.2"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="shot-cap">شاشة الورديات — الأجر مكتوب قبل الحجز</p>
       </div>
     </div>
 
-    <p class="rig-cap">تلات لحظات من يوم واحد. الشاشات التفصيلية ونظام التشغيل مش منشورين هنا.<span class="swipe">اسحب لباقي الشاشات ←</span></p>
+    <div class="lines lines-m" aria-hidden="true">
+      <svg viewBox="0 0 400 122" preserveAspectRatio="xMidYMid meet">
+        <path class="ln-dim" d="M-20 26 H86 L124 4 H420"/>
+        <path class="glow" d="M-20 104 H108 L158 54 H276 L318 22 H420"/>
+        <path class="live" id="route-m" d="M-20 104 H108 L158 54 H276 L318 22 H420"/>
+        <use class="pulse" href="#route-m"/>
+        <circle class="halo" cx="108" cy="104" r="15"/>
+        <circle class="nd-hot" cx="108" cy="104" r="6"/>
+        <circle class="halo" cx="276" cy="54" r="15"/>
+        <circle class="nd-hot" cx="276" cy="54" r="6"/>
+        <circle class="nd" cx="158" cy="54" r="4.5"/>
+      </svg>
+    </div>
 
     <div class="facts rise">
       <div class="fact"><div class="n">٠ جنيه</div><div class="l">اللي العامل بيدفعه</div><div class="s">المصنع هو اللي بيدفع</div></div>
       <div class="fact"><div class="n">٣ ساعات</div><div class="l">الهدف لملء وردية</div><div class="s">بدل ٣ أيام مع المقاول</div></div>
       <div class="fact"><div class="n">فكرة</div><div class="l">لسه مانزلتش السوق</div><div class="s">الصفحة دي عشان تقول رأيك فيها</div></div>
     </div>
-  </div>
-</header>
+  </header>
 
 
 <div class="wrap">
@@ -1634,7 +1492,7 @@ button.go:focus-visible{outline:2px solid #fff;outline-offset:3px}
   <h2 style="font-size:clamp(26px,4vw,36px);max-width:20ch">أكبر تجمّع مصانع في المحافظة، بيوظّف بطريقة من التمانينات</h2>
   <p class="lede" style="margin-top:18px">مصانع التعبئة والتغليف فيها دوران عمالة عالي — بتحتاج تملا وردية بكرا، مش توظّف موظف السنة الجاية. والأداة الوحيدة الموجودة لده دلوقتي هي راجل بيعرف ناس.</p>
 
-  <div class="three" rise">
+  <div class="three rise">
     <div class="pane">
       <span class="who">من ناحية العامل</span>
       <h3>الشغل منتور، والوسيط بياخد من جيبه</h3>
@@ -1652,7 +1510,7 @@ button.go:focus-visible{outline:2px solid #fff;outline-offset:3px}
     </div>
   </div>
 
-  <div class="rule" rise">
+  <div class="rule rise">
     <span class="badge">قاعدة مفيش تنازل عنها</span>
     <div class="body">
       <h3>العامل مابيدفعش ولا جنيه. أبدًا.</h3>
@@ -1661,11 +1519,11 @@ button.go:focus-visible{outline:2px solid #fff;outline-offset:3px}
   </div>
 </section>
 
-<!-- WHAT IT DOES -->
+<!-- A DAY -->
 <section id="app">
   <span class="eyebrow">التطبيق</span>
-  <h2 style="font-size:clamp(26px,4vw,36px);max-width:24ch">اللي بيحصل — من غير تفاصيل التنفيذ</h2>
-  <p class="lede" style="margin-top:18px">الصفحة دي بتقولك <b style="color:var(--ink)">إيه</b> اللي بيحصل. <b style="color:var(--ink)">إزاي</b> بيحصل — الشاشات وطريقة التأكيد ونظام التشغيل — مش منشور هنا عن قصد.</p>
+  <h2 style="font-size:clamp(26px,4vw,36px);max-width:22ch">يوم واحد في وردية محمد</h2>
+  <p class="lede" style="margin-top:18px">الشاشات مترتّبة بترتيب اليوم الحقيقي مش بترتيب القوايم — لأن ده الترتيب اللي العامل هيستخدمها بيه.</p>
 
   <div class="three">
     <div class="pane">
@@ -1685,11 +1543,387 @@ button.go:focus-visible{outline:2px solid #fff;outline-offset:3px}
     </div>
   </div>
 
-  <div class="rule">
-    <span class="badge">مش منشور</span>
+<div class="day">
+
+    <!-- 9:12 م — أول مرة -->
+    <article class="moment rise">
+      <div class="say">
+        <div class="clock">٩:١٢ م — أول مرة يفتح التطبيق</div>
+        <h3>مفيش سيرة ذاتية، مفيش إيميل، مفيش باسورد</h3>
+        <p>رقم موبايل وكود SMS، وبعدين سؤال واحد: بتعرف تعمل إيه؟ الاختيارات بأيقونات كبيرة عشان تتعرف من الشكل قبل ما تتقرا. وسؤال السكن مش عشان العنوان — عشان نعرف أقرب نقطة أتوبيس ليك.</p>
+        <div class="why"><b>التسجيل كله ٤٠ ثانية.</b> كل حقل زيادة هنا معناه عامل ماكمّلش. اللي مش لازم دلوقتي بيتأجل لحد ما يبقى لازم.</div>
+      </div>
+      <div class="phone">
+        <div class="pscreen">
+          <div class="statusbar"><span>9:12 PM</span><span class="rgt" data-bat="58"></span></div>
+          <div class="pbody">
+            <div class="a-head" style="padding-bottom:12px">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:12px">
+                <div style="width:30px;height:30px;border-radius:9px;background:linear-gradient(145deg,#FF8B33,#CE5405);display:grid;place-items:center;flex:none">
+                  <svg viewBox="0 0 40 40" fill="none" style="width:17px;height:17px" aria-hidden="true"><path d="M20 6a14 14 0 1 0 13 9" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/><circle cx="32.5" cy="8.5" r="4" fill="#fff"/></svg>
+                </div>
+                <div style="flex:1;height:4px;border-radius:99px;background:var(--paper-2);overflow:hidden"><i style="display:block;width:66%;height:100%;background:var(--hi)"></i></div>
+                <span style="font-size:10px;color:var(--paper-ink-3);font-weight:700;flex:none">٢ من ٣</span>
+              </div>
+              <div class="a-greet">بتعرف تعمل إيه؟</div>
+              <div class="a-sub">اختار كل اللي جرّبته قبل كده — ده اللي بيحدد الورديات اللي هتوصلك</div>
+            </div>
+
+            <div class="pad" style="padding-top:14px">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
+                <div class="card" style="margin:0;padding:13px 11px;text-align:center;border-color:var(--hi);background:#FFF9F4">
+                  <div style="font-size:24px;line-height:1">📦</div>
+                  <div style="font-size:12.5px;font-weight:900;margin-top:6px">تعبئة وتغليف</div>
+                  <div style="font-size:9.5px;color:#D4530A;font-weight:700;margin-top:2px">✓ اتختارت</div>
+                </div>
+                <div class="card" style="margin:0;padding:13px 11px;text-align:center;border-color:var(--hi);background:#FFF9F4">
+                  <div style="font-size:24px;line-height:1">⚙️</div>
+                  <div style="font-size:12.5px;font-weight:900;margin-top:6px">تشغيل ماكينة</div>
+                  <div style="font-size:9.5px;color:#D4530A;font-weight:700;margin-top:2px">✓ اتختارت</div>
+                </div>
+                <div class="card" style="margin:0;padding:13px 11px;text-align:center">
+                  <div style="font-size:24px;line-height:1;opacity:.55">🏗️</div>
+                  <div style="font-size:12.5px;font-weight:900;margin-top:6px">مخازن وشيّال</div>
+                </div>
+                <div class="card" style="margin:0;padding:13px 11px;text-align:center">
+                  <div style="font-size:24px;line-height:1;opacity:.55">🧹</div>
+                  <div style="font-size:12.5px;font-weight:900;margin-top:6px">نظافة صناعية</div>
+                </div>
+                <div class="card" style="margin:0;padding:13px 11px;text-align:center">
+                  <div style="font-size:24px;line-height:1;opacity:.55">🔧</div>
+                  <div style="font-size:12.5px;font-weight:900;margin-top:6px">صيانة</div>
+                </div>
+                <div class="card" style="margin:0;padding:13px 11px;text-align:center">
+                  <div style="font-size:24px;line-height:1;opacity:.55">🚚</div>
+                  <div style="font-size:12.5px;font-weight:900;margin-top:6px">تحميل وتنزيل</div>
+                </div>
+              </div>
+              <div class="note" style="margin-top:12px">ساكن فين؟ <b>الحي التاني</b> — هنوريك الورديات اللي الأتوبيس بتاعها بيعدّي من عندك.</div>
+            </div>
+          </div>
+          <div style="background:#fff;border-top:1px solid var(--paper-line);padding:12px 16px 18px">
+            <div class="btn wide">يلا نكمّل</div>
+            <div style="text-align:center;font-size:10.5px;color:var(--paper-ink-3);margin-top:7px">مش هنطلب منك ولا ورقة ولا فلوس</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 8:40 م -->
+    <article class="moment rise">
+      <div class="say">
+        <div class="clock">٨:٤٠ م — الليلة اللي قبلها</div>
+        <h3>بيشوف ورديات بكرا وهو قاعد في البيت</h3>
+        <p>الأجر مكتوب قبل ما يحجز — مفيش «هنتفق على الطبيعة». ونقطة الأتوبيس والساعة ظاهرة على الكارت نفسه، مش جوّه المحادثة. الورديات اللي على مقاسه بتتعلّم فوق.</p>
+        <div class="why"><b>ليه الرقم أكبر حاجة في الشاشة:</b> المستخدم ممكن يكون شبه أمّي. الرقم بيتقرا حتى لو الكلام مابيتقراش.</div>
+      </div>
+      <div class="phone">
+        <div class="pscreen">
+          <div class="statusbar"><span>8:40 PM</span><span class="rgt" data-bat="64"></span></div>
+          <div class="pbody">
+            <div class="a-head">
+              <div class="a-greet">مساء الخير يا محمد</div>
+              <div class="a-sub">مدينة السادات · تعبئة وتغليف، تشغيل ماكينة</div>
+              <div class="a-tabs">
+                <div class="a-tab on">بكرا<div class="d">الخميس ٢٨</div></div>
+                <div class="a-tab">بعد بكرا<div class="d">الجمعة ٢٩</div></div>
+                <div class="a-tab">السبت<div class="d">٣٠ أغسطس</div></div>
+              </div>
+            </div>
+            <div class="pad" style="padding-top:12px">
+              <div style="font-size:11px;font-weight:700;color:var(--paper-ink-2);margin-bottom:9px">٣ ورديات قريبة منك</div>
+
+              <div class="card match">
+                <span class="chip">★ على مقاسك</span>
+                <div class="crow">
+                  <div class="pay"><div class="v">٢٥٠</div><div class="u">جنيه</div></div>
+                  <div class="cinfo">
+                    <div class="f">مصنع تعبئة وتغليف · المنطقة الأولى</div>
+                    <div class="k">وردية صباحية · ٨ ساعات</div>
+                    <div class="j"><span data-ic="box"></span>تعبئة وتغليف</div>
+                  </div>
+                </div>
+                <div class="bus"><span class="t">٦:٠٠ ص</span><span class="s">نقطة الركوب</span><span class="ic" data-ic="bus"></span></div>
+                <div class="act"><span class="left">فاضل ٤ أماكن</span><span class="btn">احجز</span></div>
+              </div>
+
+              <div class="card match">
+                <span class="chip">★ على مقاسك</span>
+                <div class="crow">
+                  <div class="pay"><div class="v">٢٨٥</div><div class="u">جنيه</div></div>
+                  <div class="cinfo">
+                    <div class="f">مصنع أغذية · المنطقة التالتة</div>
+                    <div class="k">وردية مسائية · ٩ ساعات</div>
+                    <div class="j"><span data-ic="gear"></span>تشغيل ماكينة</div>
+                  </div>
+                </div>
+                <div class="bus"><span class="t">١:٣٠ م</span><span class="s">نقطة ركوب ٢</span><span class="ic" data-ic="bus"></span></div>
+                <div class="act"><span class="left">فاضل ١٢ مكان</span><span class="btn">احجز</span></div>
+              </div>
+
+              <div class="card off">
+                <div class="crow">
+                  <div class="pay"><div class="v">٢٣٠</div><div class="u">جنيه</div></div>
+                  <div class="cinfo">
+                    <div class="f">مصنع توابل وأعشاب</div>
+                    <div class="k">وردية صباحية · ٨ ساعات</div>
+                  </div>
+                </div>
+                <div class="act"><span class="left warn">اتملت</span><span class="btn ghost">اتملت</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="a-nav">
+            <div><span class="i" data-ic="log"></span>سجلي</div>
+            <div><span class="i" data-ic="money"></span>فلوسي</div>
+            <div><span class="i" data-ic="ticket"></span>تذكرتي</div>
+            <div class="on"><span class="i" data-ic="shift"></span>الورديات</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 8:42 م -->
+    <article class="moment rise">
+      <div class="say">
+        <div class="clock">٨:٤٢ م — قبل ما يحجز</div>
+        <h3>بيتأكد من الأتوبيس قبل الأجر</h3>
+        <p>صفحة الوردية بتجاوب على السؤال اللي بيقرر: هوصل إزاي وهرجع إزاي. الخريطة بتوري نقطة الركوب وبوابة المصنع والوقت بينهم. وبدل التغذية والتأمين مكتوبين — لأن دول اللي المصانع بتنافس بيهم فعلًا.</p>
+        <div class="why"><b>«تتقبض في نفس اليوم»</b> مكتوبة في أول الشاشة عن قصد. دي أكتر حاجة العامل بيتلسع منها.</div>
+      </div>
+      <div class="phone">
+        <div class="pscreen">
+          <div class="statusbar"><span>8:42 PM</span><span class="rgt" data-bat="64"></span></div>
+          <div class="pbody">
+            <div class="hero-band">
+              <div style="display:flex;align-items:center;font-size:11px;opacity:.92;font-weight:600"><span class="ttl" style="gap:3px"><svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>رجوع</span><span style="flex:1"></span><span>مشاركة</span></div>
+              <div class="n" style="margin-top:14px">مصنع تعبئة وتغليف · المنطقة الأولى</div>
+              <div class="z">المنطقة الصناعية الأولى · مدينة السادات</div>
+              <div class="paybox"><span class="lbl">تتقبض في نفس اليوم</span><span class="big">٢٥٠ ج</span></div>
+            </div>
+            <div class="pad" style="padding-top:12px">
+              <div class="card">
+                <div class="ttl" style="font-size:13.5px;font-weight:900"><span data-ic="bus"></span>الأتوبيس</div>
+                <div class="map">
+                  <div class="road" style="left:-10px;top:24px;width:340px;height:7px"></div>
+                  <div class="road" style="left:-10px;top:68px;width:340px;height:5px"></div>
+                  <div class="road" style="left:56px;top:-10px;width:6px;height:130px"></div>
+                  <div class="road" style="left:176px;top:-10px;width:5px;height:130px"></div>
+                  <div class="blk" style="left:76px;top:34px;width:88px;height:26px"></div>
+                  <div class="blk" style="left:194px;top:74px;width:64px;height:18px"></div>
+                  <svg viewBox="0 0 288 96" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M36 80 L36 28 L180 28 L180 56 L262 56" fill="none" stroke="#2F6FE4" stroke-width="3.5" stroke-linecap="round"/>
+                  </svg>
+                  <div class="pin" style="left:29px;top:73px;background:#FF7A1A"></div>
+                  <div class="pin" style="left:255px;top:49px;background:#22C55E;border-radius:4px"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;margin-top:11px">
+                  <div style="text-align:left">
+                    <div style="font-size:13px;font-weight:900;color:#12A150">٦:٢٥ ص</div>
+                    <div style="font-size:9.5px;color:var(--paper-ink-3)">بوابة المصنع</div>
+                  </div>
+                  <div style="flex:1;text-align:center;color:var(--paper-ink-3)">←</div>
+                  <div>
+                    <div style="font-size:13px;font-weight:900;color:var(--hi)">٦:٠٠ ص</div>
+                    <div style="font-size:9.5px;color:var(--paper-ink-3)">نقطة الركوب</div>
+                  </div>
+                </div>
+              </div>
+<div class="card" style="padding:4px 14px">
+                <div class="frow"><span class="fi" data-ic="shift"></span><span class="k">الميعاد</span><span class="v">٦:٣٠ ص → ٢:٣٠ م</span></div>
+                <div class="frow"><span class="fi" data-ic="box"></span><span class="k">الشغل</span><span class="v">تعبئة وتغليف — خط زيتون</span></div>
+                <div class="frow"><span class="fi" data-ic="meal"></span><span class="k">التغذية</span><span class="v">وجبة + شاي داخل المصنع</span></div>
+                <div class="frow"><span class="fi" data-ic="shield"></span><span class="k">التأمين</span><span class="v">تأمين حادث لليوم ده</span></div>
+              </div>
+                          </div>
+          </div>
+          <div style="background:#fff;border-top:1px solid var(--paper-line);padding:12px 16px 18px">
+            <div class="btn wide">احجز الوردية دي</div>
+            <div style="text-align:center;font-size:10.5px;font-weight:700;color:var(--paper-ink-2);margin-top:7px">فاضل ٤ أماكن بس</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 8:43 م -->
+    <article class="moment rise">
+      <div class="say">
+        <div class="clock">٨:٤٣ م — بعد الحجز</div>
+        <h3>تذكرة ركوب فيها كود يتقال بالبق</h3>
+        <p>التذكرة بتتقدّم مرتين في اليوم: عند الركوب وعند الدخول. وتحتها رقم كبير — لأن كاميرا موبايل رخيص ممكن ماتشتغلش، والعامل ساعتها بيقول الرقم وخلاص.</p>
+        <div class="why"><b>زرار «اسمع التفاصيل بالصوت»</b> بيقرا الوردية كلها بالعربي. ده مش رفاهية — ده الفرق بين إن التطبيق يشتغل مع نص المستخدمين ولا كلهم.</div>
+      </div>
+      <div class="phone">
+        <div class="pscreen dark">
+          <div class="statusbar"><span>8:43 PM</span><span class="rgt" data-bat="63"></span></div>
+          <div class="pbody" style="padding:14px 14px">
+            <div class="okpill"><span>الحجز اتأكد</span><span>✓</span></div>
+            <div class="ticket">
+              <div style="text-align:center;font-size:11.5px;color:var(--paper-ink-2);font-weight:600">تذكرة الوردية</div>
+              <div class="qr" id="qr" aria-label="كود الركوب"></div>
+              <div class="codebox"><div class="l">رقم التذكرة</div><div class="v">٤٩٢٧</div></div>
+              <div class="cut"></div>
+              <div class="trow"><span class="k">المصنع</span><span class="v">مصنع تعبئة وتغليف</span></div>
+              <div class="trow"><span class="k">التاريخ</span><span class="v">الخميس ٢٨ أغسطس</span></div>
+              <div class="trow"><span class="k">نقطة الركوب</span><span class="v">نقطة الركوب</span></div>
+              <div class="trow"><span class="k">الساعة</span><span class="v" style="color:var(--hi)">٦:٠٠ ص</span></div>
+              <div class="trow" style="margin-bottom:0"><span class="k">الأجر</span><span class="v" style="color:#12A150">٢٥٠ جنيه</span></div>
+            </div>
+            <div class="listenbtn"><span>اسمع التفاصيل بالصوت</span><span data-ic="sound" style="display:flex"></span></div>
+            <div style="text-align:center;font-size:11px;opacity:.5;margin-top:16px;font-weight:500">هنفكّرك الساعة ٥:٣٠ ص</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5:53 ص -->
+    <article class="moment rise">
+      <div class="say">
+        <div class="clock">٥:٥٣ ص — واقف في نقطة الركوب</div>
+        <h3>بيعرف الأتوبيس فاضله كام</h3>
+        <p>ده أكتر وقت بيضيع فيه أعصاب: واقف في البرد ومش عارف الأتوبيس فات ولا لسه. الشاشة دي رقم واحد كبير وخريطة — وزرار اتصال بالسواق نفسه، عم سيد، مش بكول سنتر.</p>
+        <div class="why"><b>وده كمان بيفيد المصنع:</b> أول ما يبان إن الأتوبيس متأخر، مدير الإنتاج بيعرف قبل ما خط الإنتاج يقف.</div>
+      </div>
+      <div class="phone">
+        <div class="pscreen">
+          <div class="statusbar"><span>5:53 AM</span><span class="rgt" data-bat="88"></span></div>
+          <div class="pbody">
+            <div class="count">
+              <div class="a">الأتوبيس في الطريق</div>
+              <div class="b">٧ دقايق</div>
+              <div class="c">نقطة الركوب</div>
+            </div>
+            <div style="flex:1;position:relative;background:var(--paper-2);overflow:hidden">
+              <div class="road" style="position:absolute;left:-10px;top:52px;width:340px;height:9px;background:#DBE0E7;border-radius:2px"></div>
+              <div class="road" style="position:absolute;left:-10px;top:132px;width:340px;height:6px;background:#DBE0E7;border-radius:2px"></div>
+              <div class="road" style="position:absolute;left:-10px;top:216px;width:340px;height:6px;background:#DBE0E7;border-radius:2px"></div>
+              <div class="road" style="position:absolute;left:58px;top:-10px;width:7px;height:340px;background:#DBE0E7;border-radius:2px"></div>
+              <div class="road" style="position:absolute;left:178px;top:-10px;width:6px;height:340px;background:#DBE0E7;border-radius:2px"></div>
+              <div class="blk" style="position:absolute;left:80px;top:76px;width:78px;height:38px;background:#E7EBF0;border-radius:5px"></div>
+              <div class="blk" style="position:absolute;left:200px;top:152px;width:66px;height:46px;background:#E7EBF0;border-radius:5px"></div>
+              <div class="blk" style="position:absolute;left:84px;top:164px;width:70px;height:34px;background:#E7EBF0;border-radius:5px"></div>
+              <div class="blk" style="position:absolute;left:206px;top:70px;width:70px;height:46px;background:#E7EBF0;border-radius:5px"></div>
+              <svg viewBox="0 0 288 280" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%" aria-hidden="true">
+                <path d="M264 250 L264 135 L181 135 L181 56 L62 56" fill="none" stroke="#22C55E" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+              <div style="position:absolute;left:44px;top:38px;width:44px;height:44px;border-radius:999px;background:rgba(255,122,26,.16)"></div>
+              <div style="position:absolute;left:56px;top:50px;width:20px;height:20px;border-radius:999px;background:#FF7A1A;border:4px solid #fff"></div>
+              <div style="position:absolute;left:162px;top:117px;width:36px;height:36px;border-radius:999px;background:#22C55E;border:4px solid #fff;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.22)"><svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" aria-hidden="true"><rect x="4" y="4" width="16" height="12.5" rx="3"/><path d="M4 10h16M9 4v6M15 4v6"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/></svg></div>
+            </div>
+            <div style="background:#fff;border-top:1px solid var(--paper-line);padding:13px 16px 18px">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:11px">
+                <span class="btn ttl" style="background:#E4F6EC;color:#12A150;padding:8px 14px"><span data-ic="phone"></span>اتصل</span>
+                <div style="flex:1">
+                  <div style="font-size:13px;font-weight:900">عم سيد — أتوبيس ٣</div>
+                  <div style="font-size:10px;color:var(--paper-ink-3)">سواق خط المنطقة الأولى</div>
+                </div>
+              </div>
+              <div class="btn wide dark">افتح التذكرة · ٤٩٢٧</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2:34 م -->
+    <article class="moment rise">
+      <div class="say">
+        <div class="clock">٢:٣٤ م — بعد ما الوردية خلصت</div>
+        <h3>الأجر مسجّل، والخصم مفيش</h3>
+        <p>الفلوس بتتقبض كاش من المصنع زي ما هي العادة — التطبيق مش بنك. اللي بيعمله إنه <b>بيسجّل</b> إن الوردية اتعملت وإن ٢٥٠ ج مستحقة، فبقى فيه ورقة لو حصل خلاف.</p>
+        <div class="why"><b>وده بيتراكم:</b> بعد شهر، العامل عنده رقم حقيقي لدخله. وده أول مرة يحصل في الشغل ده.</div>
+      </div>
+      <div class="phone">
+        <div class="pscreen">
+          <div class="statusbar"><span>2:34 PM</span><span class="rgt" data-bat="41"></span></div>
+          <div class="pbody">
+            <div class="wal">
+              <div class="t">فلوسي</div>
+              <div class="l">مستحق ليك</div>
+              <div class="v">٤٨٠ ج</div>
+              <div class="kk">
+                <div><div class="a">الشهر ده</div><div class="b">٢٬٤٦٠ ج</div></div>
+                <div><div class="a">من أول ما بدأت</div><div class="b">٧٬١٩٠ ج</div></div>
+              </div>
+            </div>
+            <div class="pad" style="padding-top:12px">
+              <div class="note">الأجر بيتقبض كاش من المصنع آخر الوردية. الوردية بتتسجّل هنا أول ما تدخل الشغل.</div>
+              <div class="mrow"><div class="amt"><div class="v" style="color:#D98A00">٢٥٠ ج</div><div class="s">مستنّي</div></div><div class="inf"><div class="f">مصنع تعبئة وتغليف</div><div class="d">الخميس ٢٨ أغسطس</div></div></div>
+              <div class="mrow"><div class="amt"><div class="v" style="color:#D98A00">٢٣٠ ج</div><div class="s">مستنّي</div></div><div class="inf"><div class="f">مصنع سناكس</div><div class="d">الثلاثاء ٢٦ أغسطس</div></div></div>
+              <div class="mrow"><div class="amt"><div class="v" style="color:#12A150">٣١٠ ج</div><div class="s">اتقبض</div></div><div class="inf"><div class="f">مصنع مطاط</div><div class="d">الأحد ٢٤ أغسطس</div></div></div>
+              <div class="mrow"><div class="amt"><div class="v" style="color:#12A150">٢٦٥ ج</div><div class="s">اتقبض</div></div><div class="inf"><div class="f">مصنع خضار وفاكهة</div><div class="d">الخميس ٢١ أغسطس</div></div></div>
+              <div class="mrow"><div class="amt"><div class="v" style="color:#12A150">٢٤٠ ج</div><div class="s">اتقبض</div></div><div class="inf"><div class="f">مصنع توابل وأعشاب</div><div class="d">الاتنين ١٨ أغسطس</div></div></div>
+            </div>
+          </div>
+          <div class="a-nav">
+            <div><span class="i" data-ic="log"></span>سجلي</div>
+            <div class="on"><span class="i" data-ic="money"></span>فلوسي</div>
+            <div><span class="i" data-ic="ticket"></span>تذكرتي</div>
+            <div><span class="i" data-ic="shift"></span>الورديات</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- بعد شهر -->
+    <article class="moment rise">
+      <div class="say">
+        <div class="clock">بعد شهر — سجلي</div>
+        <h3>أول مرة يكون عنده تاريخ شغل مكتوب</h3>
+        <p>١٨ وردية، ١٧ منهم حضر فيها في الميعاد، وتقييم ٤.٨ من خمس مصانع. الرقم ده مش وسام — ده اللي بيفتح له الورديات اللي أجرها أعلى، لأن المصنع بيختار من قايمة مرتّبة بالالتزام مش بالواسطة.</p>
+        <div class="why"><b>ودي أهم حاجة على المدى الطويل:</b> العامل بقى عنده حاجة يملكها ويمشي بيها. والمنصة بقى عندها الحاجة الوحيدة اللي محدش يقدر ينسخها — ألف سجل حضور حقيقي.</div>
+      </div>
+      <div class="phone">
+        <div class="pscreen">
+          <div class="statusbar"><span>7:20 PM</span><span class="rgt" data-bat="72"></span></div>
+          <div class="pbody">
+            <div style="background:linear-gradient(160deg,#1E2530,#14181D);color:#fff;padding:16px 18px 20px">
+              <div style="display:flex;align-items:center;gap:11px">
+                <div style="width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.1);display:grid;place-items:center;flex:none" class="avatar"><span data-ic="worker" style="display:flex;opacity:.8"></span></div>
+                <div style="flex:1;min-width:0">
+                  <div style="font-size:16px;font-weight:900;line-height:1.25">محمد عبد الحميد</div>
+                  <div style="font-size:10.5px;opacity:.55">عامل تعبئة وتغليف · الحي التاني</div>
+                </div>
+                <div style="text-align:left;flex:none">
+                  <div style="font-size:22px;font-weight:900;color:#FFC53D;line-height:1.1">٤.٨</div>
+                  <div style="font-size:9px;opacity:.5">★★★★★</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:14px">
+                <div style="flex:1;background:rgba(255,255,255,.1);border-radius:11px;padding:9px 11px"><div style="font-size:9.5px;opacity:.55">ورديات</div><div style="font-size:17px;font-weight:900">١٨</div></div>
+                <div style="flex:1;background:rgba(255,255,255,.1);border-radius:11px;padding:9px 11px"><div style="font-size:9.5px;opacity:.55">التزام</div><div style="font-size:17px;font-weight:900;color:#22C55E">٩٤٪</div></div>
+                <div style="flex:1;background:rgba(255,255,255,.1);border-radius:11px;padding:9px 11px"><div style="font-size:9.5px;opacity:.55">مصانع</div><div style="font-size:17px;font-weight:900">٥</div></div>
+              </div>
+            </div>
+            <div class="pad" style="padding-top:12px">
+              <div class="card match" style="padding:12px 13px">
+                <span class="chip">🔓 اتفتحلك</span>
+                <div style="font-size:13px;font-weight:900;line-height:1.4">ورديات «مشغّل خط» — أجرها ٣٤٠ ج</div>
+                <div style="font-size:10.5px;color:var(--paper-ink-2);margin-top:4px;line-height:1.6">اتفتحت لأن التزامك عدّى ٩٠٪. المصانع اللي بتطلبها بتاخد من العشرة الأوائل بس.</div>
+              </div>
+              <div style="font-size:11px;font-weight:700;color:var(--paper-ink-2);margin:12px 0 8px">تقييم المصانع</div>
+              <div class="mrow"><div class="amt"><div class="v" style="color:#D98A00">★ ٥.٠</div></div><div class="inf"><div class="f">مصنع تعبئة وتغليف</div><div class="d">٧ ورديات · «بيجي قبل الميعاد»</div></div></div>
+              <div class="mrow"><div class="amt"><div class="v" style="color:#D98A00">★ ٥.٠</div></div><div class="inf"><div class="f">مصنع مطاط</div><div class="d">٤ ورديات</div></div></div>
+              <div class="mrow"><div class="amt"><div class="v" style="color:#D98A00">★ ٤.٠</div></div><div class="inf"><div class="f">مصنع سناكس</div><div class="d">٣ ورديات · اتأخر مرة</div></div></div>
+            </div>
+          </div>
+          <div class="a-nav">
+            <div class="on"><span class="i" data-ic="log"></span>سجلي</div>
+            <div><span class="i" data-ic="money"></span>فلوسي</div>
+            <div><span class="i" data-ic="ticket"></span>تذكرتي</div>
+            <div><span class="i" data-ic="shift"></span>الورديات</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="rule rise">
+    <span class="badge">اللي مش هنا</span>
     <div class="body">
-      <h3>الشاشات ونظام التشغيل مش على اللينك ده</h3>
-      <p>التصميم كامل موجود — شاشات العامل، لوحة المصنع، وطريقة الشغل من أول التسجيل لآخر الأجر. بس ده بيتعرض لواحد لواحد، مش على صفحة مفتوحة. لو انت مصنع في السادات أو حد جاد، كلّمني وأوريهولك.</p>
+      <h3>نموذج الربح والأرقام وخطة دخول السوق</h3>
+      <p>الشاشات اللي فوق هي المنتج. اللي بيفرق بعد كده — إزاي المصنع بيدفع، وبكام، وبأي ترتيب بتدخل السوق — مش على الصفحة دي، وبتتعرض لواحد لواحد.</p>
     </div>
   </div>
 </section>
