@@ -837,6 +837,7 @@ section[id],footer[id],header[id]{scroll-margin-top:76px}
   background:linear-gradient(180deg,rgba(14,16,19,.06),rgba(14,16,19,.34));
 }
 
+.rig-cap .swipe{display:none}
 .rig-cap{
   position:relative;z-index:2;
   margin-top:34px;text-align:center;
@@ -900,26 +901,44 @@ section[id],footer[id],header[id]{scroll-margin-top:76px}
 }
 @media (max-width:660px){
   .hero{padding:56px 0 60px}
-  /* التلاتة بيفضلوا على الموبايل، بس مروّحين ومتراكبين والطرفين بيخرجوا بره الشاشة */
-  .rig{margin-top:38px;gap:0}
-  .dev.s{--k:.40}
-  .rig .dev.m{--k:.64;margin-inline:-36px;z-index:4}
-  .rig .dev.s{z-index:1}
-  .dev.tilt-r{transform:rotate(7deg) translateY(30px)}
-  .dev.tilt-l{transform:rotate(-7deg) translateY(30px)}
-  .rig-cap{margin-top:26px;font-size:12.5px;max-width:34ch;margin-inline:auto}
+
+  /* على الموبايل: صف بيتسحب بالصباع، تلفون كامل في النص كل مرة */
+  .rig{
+    display:flex;align-items:flex-start;justify-content:flex-start;
+    gap:16px;margin-top:34px;
+    margin-inline:-24px;                     /* ياخد عرض الشاشة كله بره الـ wrap */
+    padding:4px 0 16px;
+    padding-inline:calc(50vw - 106px);       /* أول وآخر تلفون يقفوا في نص الشاشة */
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .rig::-webkit-scrollbar{display:none}
+  .hero .rig::before,.hero .rig::after{content:none}
+
+  /* ترتيب اليوم: الورديات → التذكرة → الأتوبيس */
+  .rig .dev{flex:none;scroll-snap-align:center;--k:.62}
+  .rig .dev.m{order:1}
+  .rig .dev.tilt-l{order:2}
+  .rig .dev.tilt-r{order:3}
+  .rig .dev.tilt-r,.rig .dev.tilt-l{transform:none}
+  .dev.s .phone::after{content:none}         /* مفيش تظليل — كلهم في المقدّمة دلوقتي */
+
+  .rig-cap{margin-top:8px;font-size:12.5px;max-width:32ch;margin-inline:auto}
+  .rig-cap .swipe{display:block;margin-top:8px;color:var(--hi);font-size:12px;font-family:var(--mono)}
 }
 @media (prefers-reduced-motion:no-preference) and (max-width:660px){
   @keyframes arriveL{
-    from{opacity:0;transform:translate(-30px,56px) rotate(-15deg)}
-    to{opacity:1;transform:rotate(-7deg) translateY(30px)}
+    from{opacity:0;transform:translateY(56px) scale(.95)}
+    to{opacity:1;transform:none}
   }
   @keyframes arriveR{
-    from{opacity:0;transform:translate(30px,56px) rotate(15deg)}
-    to{opacity:1;transform:rotate(7deg) translateY(30px)}
+    from{opacity:0;transform:translateY(56px) scale(.95)}
+    to{opacity:1;transform:none}
   }
-  @keyframes driftL{0%,100%{transform:rotate(-7deg) translateY(30px)}50%{transform:rotate(-7deg) translateY(25px)}}
-  @keyframes driftR{0%,100%{transform:rotate(7deg) translateY(30px)}50%{transform:rotate(7deg) translateY(24px)}}
+  @keyframes driftL{0%,100%{transform:none}50%{transform:translateY(-5px)}}
+  @keyframes driftR{0%,100%{transform:none}50%{transform:translateY(-5px)}}
 }
 
 /* ═════════════════════════════════════════════════════
@@ -1596,7 +1615,7 @@ button.go:focus-visible{outline:2px solid #fff;outline-offset:3px}
       </div>
     </div>
 
-    <p class="rig-cap">تلات لحظات من يوم واحد. الشاشات التفصيلية ونظام التشغيل مش منشورين هنا.</p>
+    <p class="rig-cap">تلات لحظات من يوم واحد. الشاشات التفصيلية ونظام التشغيل مش منشورين هنا.<span class="swipe">اسحب لباقي الشاشات ←</span></p>
 
     <div class="facts rise">
       <div class="fact"><div class="n">٠ جنيه</div><div class="l">اللي العامل بيدفعه</div><div class="s">المصنع هو اللي بيدفع</div></div>
