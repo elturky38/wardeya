@@ -843,21 +843,56 @@ section[id],footer[id],header[id]{scroll-margin-top:76px}
   color:var(--ink-3);font-size:13.5px;
 }
 
-/* ─────────── دخول التلفونات + عوم خفيف ─────────── */
+/* ─────────── وصول التلفونات: تلات لحظات بترتيب اليوم ─────────── */
+.rig .dev .phone{overflow:hidden}
+
 @media (prefers-reduced-motion:no-preference){
-  .rig .dev{opacity:0;animation:devIn .95s cubic-bezier(.22,.9,.3,1) .10s forwards, devFloat 7s ease-in-out 1.2s infinite}
-  .rig .dev.tilt-r{animation-name:devInR,devFloatR;animation-delay:.40s,1.5s;animation-duration:.95s,8s}
-  .rig .dev.tilt-l{animation-name:devInL,devFloatL;animation-delay:.52s,1.9s;animation-duration:.95s,9s}
-  @keyframes devIn{from{opacity:0;transform:translateY(56px)}to{opacity:1;transform:none}}
-  @keyframes devInR{from{opacity:0;transform:rotate(0deg) translateY(76px)}to{opacity:1;transform:rotate(4.5deg) translateY(28px)}}
-  @keyframes devInL{from{opacity:0;transform:rotate(0deg) translateY(76px)}to{opacity:1;transform:rotate(-4.5deg) translateY(28px)}}
-  @keyframes devFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-  @keyframes devFloatR{0%,100%{transform:rotate(4.5deg) translateY(28px)}50%{transform:rotate(4.5deg) translateY(18px)}}
-  @keyframes devFloatL{0%,100%{transform:rotate(-4.5deg) translateY(28px)}50%{transform:rotate(-4.5deg) translateY(20px)}}
-  .rig-cap{opacity:0;animation:capIn .8s ease 1.05s forwards}
+  /* الترتيب زمني مش مكاني: الحجز بالليل → التذكرة → الأتوبيس الصبح */
+  .rig .dev{opacity:0}
+  .rig .dev.m{animation:arriveM 1.15s cubic-bezier(.16,.84,.28,1.02) .15s forwards,
+              driftM 11s ease-in-out 2s infinite}
+  .rig .dev.tilt-l{animation:arriveL 1.15s cubic-bezier(.16,.84,.28,1.02) .5s forwards,
+              driftL 13s ease-in-out 2.6s infinite}
+  .rig .dev.tilt-r{animation:arriveR 1.15s cubic-bezier(.16,.84,.28,1.02) .85s forwards,
+              driftR 15s ease-in-out 3.2s infinite}
+
+  @keyframes arriveM{
+    from{opacity:0;transform:translateY(78px) scale(.94)}
+    to{opacity:1;transform:none}
+  }
+  @keyframes arriveL{
+    from{opacity:0;transform:translate(-46px,74px) rotate(-13deg)}
+    to{opacity:1;transform:rotate(-4.5deg) translateY(28px)}
+  }
+  @keyframes arriveR{
+    from{opacity:0;transform:translate(46px,74px) rotate(13deg)}
+    to{opacity:1;transform:rotate(4.5deg) translateY(28px)}
+  }
+
+  /* عوم بطيء جدًا وبمدد مختلفة — مايبانش إنه لوب */
+  @keyframes driftM{0%,100%{transform:none}50%{transform:translateY(-5px)}}
+  @keyframes driftL{0%,100%{transform:rotate(-4.5deg) translateY(28px)}50%{transform:rotate(-4.5deg) translateY(23px)}}
+  @keyframes driftR{0%,100%{transform:rotate(4.5deg) translateY(28px)}50%{transform:rotate(4.5deg) translateY(22px)}}
+
+  /* لمعة بتعدّي على الشاشة أول ما تنزل — زي ضوء بيمر على موبايل في إيد حد */
+  .rig .dev .phone::before{
+    content:"";position:absolute;inset:0;z-index:6;pointer-events:none;border-radius:38px;
+    background:linear-gradient(104deg,transparent 34%,rgba(255,255,255,.17) 46%,rgba(255,122,26,.12) 53%,transparent 68%);
+    opacity:0;transform:translateX(-130%);
+    animation:sweep 1.25s ease-out forwards;
+  }
+  .rig .dev.m .phone::before{animation-delay:.75s}
+  .rig .dev.tilt-l .phone::before{animation-delay:1.1s}
+  .rig .dev.tilt-r .phone::before{animation-delay:1.45s}
+  @keyframes sweep{
+    0%{opacity:0;transform:translateX(-130%)}
+    18%{opacity:1}
+    100%{opacity:0;transform:translateX(130%)}
+  }
+
+  .rig-cap{opacity:0;animation:capIn .9s ease 1.7s forwards}
   @keyframes capIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 }
-
 
 @media (max-width:980px){
   .dev.s{--k:.44}
@@ -865,9 +900,26 @@ section[id],footer[id],header[id]{scroll-margin-top:76px}
 }
 @media (max-width:660px){
   .hero{padding:56px 0 60px}
-  .dev.tilt-r,.dev.tilt-l{display:none}
-  .dev.m{--k:.78}
-  .rig{margin-top:42px}
+  /* التلاتة بيفضلوا على الموبايل، بس مروّحين ومتراكبين والطرفين بيخرجوا بره الشاشة */
+  .rig{margin-top:38px;gap:0}
+  .dev.s{--k:.40}
+  .rig .dev.m{--k:.64;margin-inline:-36px;z-index:4}
+  .rig .dev.s{z-index:1}
+  .dev.tilt-r{transform:rotate(7deg) translateY(30px)}
+  .dev.tilt-l{transform:rotate(-7deg) translateY(30px)}
+  .rig-cap{margin-top:26px;font-size:12.5px;max-width:34ch;margin-inline:auto}
+}
+@media (prefers-reduced-motion:no-preference) and (max-width:660px){
+  @keyframes arriveL{
+    from{opacity:0;transform:translate(-30px,56px) rotate(-15deg)}
+    to{opacity:1;transform:rotate(-7deg) translateY(30px)}
+  }
+  @keyframes arriveR{
+    from{opacity:0;transform:translate(30px,56px) rotate(15deg)}
+    to{opacity:1;transform:rotate(7deg) translateY(30px)}
+  }
+  @keyframes driftL{0%,100%{transform:rotate(-7deg) translateY(30px)}50%{transform:rotate(-7deg) translateY(25px)}}
+  @keyframes driftR{0%,100%{transform:rotate(7deg) translateY(30px)}50%{transform:rotate(7deg) translateY(24px)}}
 }
 
 /* ═════════════════════════════════════════════════════
